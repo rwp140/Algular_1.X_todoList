@@ -1,5 +1,6 @@
 # Algular_1.X_todoList
-# Create a ToDo app in AngularJs 1.x. 
+base is based on angular-seed [ https://github.com/angular/angular-seed ] with modifications
+# Create a ToDo app in AngularJs 1.x.
 ## Stage 1:
 
 ### Functionalities
@@ -11,5 +12,5 @@
 6. Able to edit a todo item - as per (4), once a page refresh is done, the item must also be editted
 7. Have a login view with a login function with Firebase
 8. Have a signup view with a signup function with Firebase
-9. Have a README in markdown format to detail the step by step of getting started with your app. 
+9. Have a README in markdown format to detail the step by step of getting started with your app.
 10. Upload all your code to github.
