@@ -7,6 +7,9 @@
   <div id = 'tabs'></div>
   <div id = "mainBody">
     <input id ="mainInput" name="mainInput" type="text"/>
-    <List-Item class = 'item'></List-Item>
+    <!--<div class=""  ng-repeat = 'item in vm.list' >
+      {{item}}
+    </div>-->
+    <List-Item class = 'item' ng-repeat = 'item in vm.list' ></List-Item>
   </div>
 </div>
