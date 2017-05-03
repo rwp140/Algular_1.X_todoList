@@ -8,11 +8,7 @@
   function listItem (){
     return {
       restrict: 'E',
-      scope: {
-        placeholder: "@",
-        list: "=",
-        property: "@"
-      },
+      scope: true,
       templateUrl: 'modules/ToDo/SubDirectives/listItem/listItem.directive.html',
       link: function(scope) {
         function init(){
