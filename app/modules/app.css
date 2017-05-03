@@ -2,6 +2,16 @@ body{
     margin: 0;
     background: #222;
     color: black;
+#content{
+  display: flex;
+  flex-direction: row;
+  background: black;
+  padding: 1% 5%;
+  margin: 2.5%;
+}
+#tabs{
+  background: grey;
+  width: 150px;
 }
 
 #mainBody{
