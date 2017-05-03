@@ -1,7 +1,8 @@
 body{
-    margin: 0;
-    background: #222;
-    color: black;
+  margin: 0;
+  background: #222;
+  color: black;
+}
 #content{
   display: flex;
   flex-direction: row;
@@ -13,14 +14,17 @@ body{
   background: grey;
   width: 150px;
 }
-
 #mainBody{
+  display: flex;
+  flex: auto;
+  flex-direction: column;
   background: antiquewhite;
   border: solid 1px;
   border-color: silver;
   padding: 1px 25px;
 }
 #mainInput{
+  flex: auto;
   width:75%;
   display: block;
 }
