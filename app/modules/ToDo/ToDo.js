@@ -1,14 +1,19 @@
-'use strict';
+(function(){
+  'use strict';
 
-angular.module('ToDo', ['ngRoute'])
+  angular.module('ToDo', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/ToDo', {
-    templateUrl: 'modules/ToDo/ToDo.html',
-    //controller: 'ToDoCtrl'
-  });
-}])
+  .config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/ToDo', {
+      templateUrl: 'modules/ToDo/ToDo.html',
+      controller: 'ToDoController',
+      controllerAs: 'vm'
+      //controller: 'ToDoCtrl'
+    });
+  }]);
+  //.controller('toDoController',toDoController );
+  //  function toDoControler(){console.log("ERROR");}
+})();
 
-//.controller('ToDoCtrl', [function() {
 
 //}]);
