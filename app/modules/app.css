@@ -29,5 +29,9 @@ body{
   display: block;
 }
 .item{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  flex: auto;
   width:75%;
 }
