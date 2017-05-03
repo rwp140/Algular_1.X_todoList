@@ -1,25 +1,19 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+body{
+    margin: 0;
+    background: #222;
+    color: black;
 }
 
-.menu:before {
-  content: "[";
+#mainBody{
+  background: antiquewhite;
+  border: solid 1px;
+  border-color: silver;
+  padding: 1px 25px;
 }
-
-.menu:after {
-  content: "]";
+#mainInput{
+  width:75%;
+  display: block;
 }
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+#item{
+  width:75%;
 }
