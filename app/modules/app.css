@@ -23,17 +23,19 @@ body{
   background: antiquewhite;
   border: solid 1px;
   border-color: silver;
-  padding: 1px 25px;
 }
 #mainInput{
   flex: auto;
-  width:75%;
   display: block;
+  margin: 4px 2px;
 }
 .item{
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   flex: auto;
-  width:75%;
+  margin: 2px 0px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 0px 10px;
 }
