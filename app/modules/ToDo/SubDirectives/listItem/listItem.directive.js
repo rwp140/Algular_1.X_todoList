@@ -2,7 +2,7 @@
   'use strict'
 
   angular.module('ToDo')
-  .directive('listItem',listItem)
+  .directive('listItem',listItem);
 
   //sample.$inject = ['ToDoService'];
   function listItem (){
