@@ -28,6 +28,6 @@ body{
   width:75%;
   display: block;
 }
-#item{
+.item{
   width:75%;
 }
