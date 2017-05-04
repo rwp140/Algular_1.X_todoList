@@ -15,6 +15,7 @@ body{
 #tabs{
   background: grey;
   width: 150px;
+  flex-shrink: 0;
 }
 #mainBody{
   display: flex;
@@ -23,6 +24,7 @@ body{
   background: antiquewhite;
   border: solid 1px;
   border-color: silver;
+  flex-shrink: .5;
 }
 #mainInput{
   flex: auto;
