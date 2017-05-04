@@ -44,3 +44,6 @@ body{
 .itemContent{
   flex-grow: 1;
 }
+.item-Button{
+  flex-grow: 0.01;
+}
