@@ -52,6 +52,11 @@
       vm.displayList = createEmptyList(vm.pageSize);
       vm.list = [];
     }
+    function loadList(){
+      for(let i=0,l=vm.list.length;i<l;i++){
+        addItemToDisplayList(i,vm.list[i]);
+      }
+    }
     /*====================== Actions =================================== */
     init();
   }
