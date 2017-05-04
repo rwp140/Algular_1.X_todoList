@@ -51,6 +51,9 @@ body{
 }
 .item-Button{
   flex-grow: 0.01;
+  color:gainsboro;
+}
+
 .item-Button:hover{
   color: black;
 }
