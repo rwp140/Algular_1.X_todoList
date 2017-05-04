@@ -51,4 +51,6 @@ body{
 }
 .item-Button{
   flex-grow: 0.01;
+.item-Button:hover{
+  color: black;
 }
