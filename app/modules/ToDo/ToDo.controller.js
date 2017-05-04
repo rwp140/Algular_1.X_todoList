@@ -9,7 +9,10 @@
     /*====================== Delegation Variables ====================== */
     vm.addItem = addItem;
     /*====================== Variables ================================= */
-    vm.list = ["a","b"]
+    vm.displayList = [{value:" "},{value:" "}];
+    vm.list = [{value:" "},{value:" "}];
+    vm.pageSize = 25;
+    vm.inputData = "";
     /*====================== Services ================================== */
     /*====================== Public Methods ============================ */
     function addItem($event){
@@ -21,8 +24,20 @@
       }
     }
     /*====================== Private Methods =========================== */
-
+    function addItemToDisplayList(index, item){
+      vm.displayList[index] = item;
+    }
+    function createEmptyList(_size){
+      //create empty list at variable size!
+      var list_ = [];//out going list
+      for(let i =0, l = _size; i<l; i++){
+        list_.push({value:" ",empty:true});
+      }
+      return list_
+    }
     function init(){
+      vm.displayList = createEmptyList(vm.pageSize);
+      vm.list = [];
     }
     /*====================== Actions =================================== */
     init();
