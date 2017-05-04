@@ -1,1 +1,1 @@
-<div class = 'itemContent'>{{item.value}}</div><div class='buttons'  ng-if="!item.empty"> <div class = 'item-Button'> [+] </div> <div class = 'item-Button'> [X] </div></div>
+<div class = 'itemContent'>{{item.value}}</div><div class='buttons'  ng-if="!item.empty"> <div class = 'item-Button'> [+] </div> <div class = 'item-Button' ng-click="vm.removeItem($index)"> [X] </div></div>
