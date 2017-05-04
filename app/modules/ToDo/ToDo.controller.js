@@ -7,13 +7,12 @@
   function ToDoController(){
     var vm = this;
     /*====================== Delegation Variables ====================== */
-    vm.AddItem = AddItem;
+    vm.addItem = addItem;
     /*====================== Variables ================================= */
     vm.list = ["a","b"]
     /*====================== Services ================================== */
     /*====================== Public Methods ============================ */
-    function AddItem(){
-
+    function addItem($event){
     }
     /*====================== Private Methods =========================== */
 
