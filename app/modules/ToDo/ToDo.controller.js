@@ -37,6 +37,9 @@
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       vm.displayList[index] = item;
     }
+    function clearDisplay(){
+        vm.displayList = createEmptyList(vm.pageSize);
+    }
     function createEmptyList(_size){
       //create empty list at variable size!
       var list_ = [];//out going list
