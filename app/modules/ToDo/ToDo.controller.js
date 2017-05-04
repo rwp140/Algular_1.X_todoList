@@ -34,7 +34,7 @@
       loadList();
     }
     /*====================== Private Methods =========================== */
-    function addItemToDisplayList(index, item){
+    function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       vm.displayList[index] = item;
     }
     function createEmptyList(_size){
