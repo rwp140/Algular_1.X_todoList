@@ -44,6 +44,11 @@ body{
 .itemContent{
   flex-grow: 1;
 }
+.buttons{
+  flex-direction: row;
+  flex-wrap: nowrap;
+  display: flex;
+}
 .item-Button{
   flex-grow: 0.01;
 }
