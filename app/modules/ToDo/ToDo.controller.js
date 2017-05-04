@@ -8,6 +8,7 @@
     var vm = this;
     /*====================== Delegation Variables ====================== */
     vm.addItem = addItem;
+    vm.addItemButton = addItemButton;
     /*====================== Variables ================================= */
     vm.displayList = [{value:" "},{value:" "}];
     vm.list = [{value:" "},{value:" "}];
@@ -15,13 +16,12 @@
     vm.inputData = "";
     /*====================== Services ================================== */
     /*====================== Public Methods ============================ */
-    function addItem($event){
-      if($event.code === 'Enter'){
+    function addItem(){
         var item = {value:vm.inputData};
         vm.list.push(item);
         vm.inputData = "";
         addItemToDisplayList(vm.list.length-1,item);
-      }
+    }
     }
     /*====================== Private Methods =========================== */
     function addItemToDisplayList(index, item){
