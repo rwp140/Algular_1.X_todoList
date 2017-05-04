@@ -22,6 +22,11 @@
         vm.inputData = "";
         addItemToDisplayList(vm.list.length-1,item);
     }
+    function addItemButton($event){
+        if($event.code === 'Enter'){
+          addItem()
+        }
+    }
     }
     /*====================== Private Methods =========================== */
     function addItemToDisplayList(index, item){
