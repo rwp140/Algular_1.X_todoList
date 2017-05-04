@@ -9,6 +9,7 @@
     /*====================== Delegation Variables ====================== */
     vm.addItem = addItem;
     vm.addItemButton = addItemButton;
+    vm.removeItem = removeItem;
     /*====================== Variables ================================= */
     vm.displayList = [{value:" "},{value:" "}];
     vm.list = [{value:" "},{value:" "}];
@@ -27,6 +28,10 @@
           addItem()
         }
     }
+    function removeItem(index){
+      vm.list.splice(index,1);
+      clearDisplay();
+      loadList();
     }
     /*====================== Private Methods =========================== */
     function addItemToDisplayList(index, item){
