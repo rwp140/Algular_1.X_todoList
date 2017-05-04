@@ -17,15 +17,15 @@
     vm.inputData = "";
     /*====================== Services ================================== */
     /*====================== Public Methods ============================ */
-    function addItem(){
+    function addItem(index){
         var item = {value:vm.inputData};
-        vm.list.push(item);
+        vm.list.splice(index,0,item);
         vm.inputData = "";
-        addItemToDisplayList(vm.list.length-1,item);
+        addItemToDisplayList(index,item);
     }
     function addItemButton($event){
         if($event.code === 'Enter'){
-          addItem()
+          addItem(vm.list.length)
         }
     }
     function removeItem(index){
