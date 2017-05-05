@@ -6,19 +6,20 @@
 
   function ToDoController(){
     var vm = this;
-    /*====================== Delegation Variables ====================== */
+    /*====================== Delegation Variables =========================== */
     vm.addItem = addItem;
     vm.addItemButton = addItemButton;
     vm.removeItem = removeItem;
-    /*====================== Variables ================================= */
+    /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
     vm.list = [{value:" "},{value:" "}];
     vm.pageSize = 25;
     vm.inputData = "";
-    /*====================== Services ================================== */
-    /*====================== Public Methods ============================ */
     function addItem(index){
         var item = {value:vm.inputData};
+    /*====================== private Variables ============================== */
+    /*====================== Services ======================================= */
+    /*====================== Public Methods ================================= */
         vm.list.splice(index,0,item);
         vm.inputData = "";
         addItemToDisplayList(index,item);
@@ -33,7 +34,7 @@
       clearDisplay();
       loadList();
     }
-    /*====================== Private Methods =========================== */
+    /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       vm.displayList[index] = item;
     }
@@ -57,7 +58,7 @@
         addItemToDisplayList(i,vm.list[i]);
       }
     }
-    /*====================== Actions =================================== */
+    /*====================== Actions ======================================== */
     init();
   }
 })();
