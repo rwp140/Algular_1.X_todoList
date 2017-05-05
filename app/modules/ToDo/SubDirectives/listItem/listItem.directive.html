@@ -6,3 +6,6 @@
     <input id ="mainInput" name="mainInput" value = "{{item.value}}" placeholder="enter To Do Item Text Here (press enter to save)" type="text" ng-model="item.value" ng-keydown="vm.exitEditMode($event,$index)"/>
   </div>
 </div>
+<div class='buttons'  ng-if="!item.empty">
+  <div class = 'item-Button removeItem-Button' ng-click="vm.removeItem($index)"> [X] </div>
+</div>
