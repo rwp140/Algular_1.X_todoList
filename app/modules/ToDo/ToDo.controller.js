@@ -9,6 +9,7 @@
     /*====================== Delegation Variables =========================== */
     vm.addItem = addItem;
     vm.addItemButton = addItemButton;
+    vm.editItem = editItem;
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
@@ -29,6 +30,10 @@
           addItem(vm.list.length,item)
         }
     }
+    function editItem(index, content){
+      vm.list[index].value = content;
+      vm.displayList[index].value = content;
+    }
     function removeItem(index){
       vm.list.splice(index,1);
       clearDisplay();
@@ -39,13 +44,13 @@
       vm.displayList[index] = item;
     }
     function clearDisplay(){
-        vm.displayList = createEmptyList(vm.pageSize);
+      vm.displayList = createEmptyList(vm.pageSize);
     }
     function createEmptyList(_size){
       //create empty list at variable size!
       var list_ = [];//out going list
       for(let i =0, l = _size; i<l; i++){
-        list_.push({value:" ",empty:true});
+        list_.push({value:" ",empty:true, editMode: false});
       }
       return list_
     }
