@@ -1,1 +1,8 @@
-<div class = 'itemContent'>{{item.value}}</div><div class='buttons'  ng-if="!item.empty"> <div class = 'item-Button'> [+] </div> <div class = 'item-Button' ng-click="vm.removeItem($index)"> [X] </div></div>
+<div class = 'itemContent'>
+  <div  ng-if="!item.editMode">
+    {{item.value}}
+  </div>
+  <div  ng-if="item.editMode">
+    <input id ="mainInput" name="mainInput" value = "{{item.value}}" placeholder="enter To Do Item Text Here (press enter to save)" type="text" ng-model="item.value" ng-keydown="vm.exitEditMode($event,$index)"/>
+  </div>
+</div>
