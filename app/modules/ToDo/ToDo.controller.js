@@ -10,6 +10,7 @@
     vm.addItem = addItem;
     vm.addItemButton = addItemButton;
     vm.editItem = editItem;
+    vm.editModeButton = editModeButton;
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
@@ -33,6 +34,14 @@
     function editItem(index, content){
       vm.list[index].value = content;
       vm.displayList[index].value = content;
+    }
+    function editModeButton($index){
+      if(vm.displayList[$index].editMode){
+        console.log(vm.list[$index].value);
+        editItem($index,vm.displayList[$index].value);
+        console.log(vm.list[$index].value);
+      }
+      vm.displayList[$index].editMode = !vm.displayList[$index].editMode;
     }
     function removeItem(index){
       vm.list.splice(index,1);
