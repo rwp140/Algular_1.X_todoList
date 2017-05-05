@@ -7,5 +7,6 @@
   </div>
 </div>
 <div class='buttons'  ng-if="!item.empty">
+  <div class = 'item-Button addItem-Button' ng-click="vm.addItem($index)"> [+] </div>
   <div class = 'item-Button removeItem-Button' ng-click="vm.removeItem($index)"> [X] </div>
 </div>
