@@ -15,18 +15,18 @@
     vm.list = [{value:" "},{value:" "}];
     vm.pageSize = 25;
     vm.inputData = "";
-    function addItem(index){
-        var item = {value:vm.inputData};
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
+    function addItem(index,item){
         vm.list.splice(index,0,item);
         vm.inputData = "";
         addItemToDisplayList(index,item);
     }
     function addItemButton($event){
         if($event.code === 'Enter'){
-          addItem(vm.list.length)
+          var item = {value:vm.inputData, editMode: false};
+          addItem(vm.list.length,item)
         }
     }
     function removeItem(index){
