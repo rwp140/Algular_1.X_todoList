@@ -11,6 +11,7 @@
     vm.addItemButton = addItemButton;
     vm.editItem = editItem;
     vm.editModeButton = editModeButton;
+    vm.exitEditMode = exitEditMode;
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
@@ -42,6 +43,11 @@
         console.log(vm.list[$index].value);
       }
       vm.displayList[$index].editMode = !vm.displayList[$index].editMode;
+    }
+    function exitEditMode($event,$index){
+      if($event.code === 'Enter'){
+        editModeButton($index);
+      }
     }
     function removeItem(index){
       vm.list.splice(index,1);
