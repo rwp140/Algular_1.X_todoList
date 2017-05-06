@@ -59,6 +59,9 @@
     function saveButton(){
       saveList(vm.list)
     }
+    function saveList(_list){
+
+    }
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       vm.displayList[index] = item;
