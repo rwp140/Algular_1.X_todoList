@@ -13,6 +13,7 @@
 
     /*====================== private Variables ============================== */
     var database;
+    var auth;
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
     function writeData(userID,path,dataID,data){
@@ -36,6 +37,7 @@
 
        // Get a reference to the database service
        database = fbApp.database();
+       auth = fbApp.auth();
     }
     /*====================== Actions ======================================== */
     init();
