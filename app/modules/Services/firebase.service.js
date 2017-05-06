@@ -17,7 +17,10 @@
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
     function writeData(userID,path,dataID,data){
-      var dataPoint = svc.database.ref('users/'+userID+path+dataID);
+      var path = 'users/'+userID+"/"+path+dataID;
+      //console.log(path);
+      //console.log(data);
+      var dataPoint = database.ref(path);
       dataPoint.set(data);
     }
     /*====================== Private Methods ================================ */
