@@ -78,6 +78,9 @@
     function signUpButton(){
       fbSvc.signInUser("rwp140@gmail.com","tempPassword")
     }
+    function saveList(_list){
+      fbSvc.writeData("testUser","lists/","testList",_list);
+    }
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       vm.displayList[index] = item;
