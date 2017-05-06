@@ -72,20 +72,6 @@
     function init(){
       vm.displayList = createEmptyList(vm.pageSize);
       vm.list = [];
-      initializeFireBase();
-    }
-    function initializeFireBase(){
-      var config = {
-         apiKey: "AIzaSyD9wFQXNmqInupKbaFOrX_lxq29FmaahFo",
-         authDomain: "angular-todo-3c46d.firebaseapp.com",
-         databaseURL: "https://angular-todo-3c46d.firebaseio.com/",
-         //storageBucket: "bucket.appspot.com",
-         //messagingSenderId: "<SENDER_ID>"
-       };
-       firebase.initializeApp(config);
-
-       // Get a reference to the database service
-       var database = firebase.database();
     }
     function loadList(){
       for(let i=0,l=vm.list.length;i<l;i++){
