@@ -10,8 +10,9 @@
     /*====================== Delegation Variables =========================== */
     svc.writeData = writeData;
     /*====================== public Variables =============================== */
-    svc.database;
+
     /*====================== private Variables ============================== */
+    var database;
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
     function writeData(userID,path,dataID,data){
