@@ -8,6 +8,7 @@
 	function firebaseService() {
 		var svc = this;
     /*====================== Delegation Variables =========================== */
+    svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
     svc.writeData = writeData;
     /*====================== public Variables =============================== */
@@ -37,6 +38,14 @@
         }
         //console.log(error);
         // [END_EXCLUDE]
+      });
+    }
+    function signInUser(email,password){
+      auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
       });
     }
     function signOutUser(){
