@@ -32,10 +32,10 @@
          //storageBucket: "bucket.appspot.com",
          //messagingSenderId: "<SENDER_ID>"
        };
-       firebase.initializeApp(config);
+       var fbApp = firebase.initializeApp(config);
 
        // Get a reference to the database service
-       svc.database = firebase.database();
+       database = fbApp.database();
     }
     /*====================== Actions ======================================== */
     init();
