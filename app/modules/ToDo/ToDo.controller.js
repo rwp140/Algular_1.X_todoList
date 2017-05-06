@@ -13,6 +13,7 @@
     vm.editItem = editItem;
     vm.editModeButton = editModeButton;
     vm.exitEditMode = exitEditMode;
+    vm.signInButton = signInButton;
     vm.signUpButton = signUpButton;
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
@@ -60,7 +61,9 @@
     function saveButton(){
       saveList(vm.list)
     }
-    function saveList(_list){
+    function signInButton(){
+
+    }
 
     }
     function signUpButton(){
