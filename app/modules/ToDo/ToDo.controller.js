@@ -20,9 +20,9 @@
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
+    vm.inputData = "";
     vm.list = [{value:" "},{value:" "}];
     vm.pageSize = 25;
-    vm.inputData = "";
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
     var fbSvc = firebaseService;
