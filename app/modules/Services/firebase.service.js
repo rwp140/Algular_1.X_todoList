@@ -8,11 +8,16 @@
 	function firebaseService() {
 		var svc = this;
     /*====================== Delegation Variables =========================== */
+    svc.writeData = writeData;
     /*====================== public Variables =============================== */
     svc.database;
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
+    function writeData(userID,path,dataID,data){
+      var dataPoint = svc.database.ref('users/'+userID+path+dataID);
+      dataPoint.set(data);
+    }
     /*====================== Private Methods ================================ */
     function init(){
       initializeFireBase();
