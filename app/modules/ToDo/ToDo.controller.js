@@ -21,7 +21,7 @@
     vm.inputData = "";
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
-    var fbSvc
+    var fbSvc = firebaseService;
     /*====================== Public Methods ================================= */
     function addItem(index,item){
         vm.list.splice(index,0,item);
