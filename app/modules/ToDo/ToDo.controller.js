@@ -13,6 +13,7 @@
     vm.editItem = editItem;
     vm.editModeButton = editModeButton;
     vm.exitEditMode = exitEditMode;
+    vm.saveButton = saveButton;
     vm.signInButton = signInButton;
     vm.signOutButton = signOutButton;
     vm.signUpButton = signUpButton;
@@ -60,7 +61,13 @@
       loadList();
     }
     function saveButton(){
-      saveList(vm.list)
+      //set up save list
+      //to get rid of angular hash key and keys used only client side
+      var list_ = []
+      for(let i =0, l =vm.list.length; i < l; i++){
+        list_.push({value:vm.list[i].value});
+      }
+      saveList(list_)
     }
     function signInButton(){
 
