@@ -8,6 +8,7 @@
 	function firebaseService() {
 		var svc = this;
     /*====================== Delegation Variables =========================== */
+    svc.signOutUser = signOutUser;
     svc.writeData = writeData;
     /*====================== public Variables =============================== */
 
@@ -37,6 +38,9 @@
         //console.log(error);
         // [END_EXCLUDE]
       });
+    }
+    function signOutUser(){
+
     }
     /*====================== Private Methods ================================ */
     function init(){
