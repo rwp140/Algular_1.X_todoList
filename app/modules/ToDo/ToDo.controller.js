@@ -13,6 +13,7 @@
     vm.editItem = editItem;
     vm.editModeButton = editModeButton;
     vm.exitEditMode = exitEditMode;
+    vm.signUpButton = signUpButton;
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
@@ -61,6 +62,9 @@
     }
     function saveList(_list){
 
+    }
+    function signUpButton(){
+      fbSvc.signInUser("rwp140@gmail.com","tempPassword")
     }
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
