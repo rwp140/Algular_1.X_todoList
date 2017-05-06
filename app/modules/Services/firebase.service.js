@@ -10,6 +10,7 @@
     /*====================== Delegation Variables =========================== */
     svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
+    svc.signUpUser = signUpUser;
     svc.writeData = writeData;
     /*====================== public Variables =============================== */
 
