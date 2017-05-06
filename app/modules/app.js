@@ -9,9 +9,5 @@
   ]).
   config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $routeProvider.otherwise({redirectTo: '/ToDo'});
-
-    //'myApp.view1',
-    //'myApp.view2',
-    //'myApp.version'
   }]);
 })();
