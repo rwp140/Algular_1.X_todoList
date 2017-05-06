@@ -4,7 +4,8 @@
   angular.module('ToDo')
   .controller('ToDoController',ToDoController);
 
-  function ToDoController(){
+  ToDoController.$inject = ['firebaseService'];
+  function ToDoController(firebaseService){
     var vm = this;
     /*====================== Delegation Variables =========================== */
     vm.addItem = addItem;
@@ -20,6 +21,7 @@
     vm.inputData = "";
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
+    var fbSvc
     /*====================== Public Methods ================================= */
     function addItem(index,item){
         vm.list.splice(index,0,item);
