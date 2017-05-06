@@ -14,6 +14,7 @@
     vm.editModeButton = editModeButton;
     vm.exitEditMode = exitEditMode;
     vm.signInButton = signInButton;
+    vm.signOutButton = signOutButton;
     vm.signUpButton = signUpButton;
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
@@ -64,6 +65,7 @@
     function signInButton(){
 
     }
+    function signOutButton(){
 
     }
     function signUpButton(){
