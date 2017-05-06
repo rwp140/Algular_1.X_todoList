@@ -9,6 +9,7 @@
 		var service = this;
     /*====================== Delegation Variables =========================== */
     /*====================== public Variables =============================== */
+    svc.database;
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
@@ -28,7 +29,7 @@
        firebase.initializeApp(config);
 
        // Get a reference to the database service
-       var database = firebase.database();
+       svc.database = firebase.database();
     }
     /*====================== Actions ======================================== */
     init();
