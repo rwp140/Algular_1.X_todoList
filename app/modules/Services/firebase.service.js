@@ -6,7 +6,7 @@
 
 	firebaseService.$inject = [];
 	function firebaseService() {
-		var service = this;
+		var svc = this;
     /*====================== Delegation Variables =========================== */
     /*====================== public Variables =============================== */
     svc.database;
