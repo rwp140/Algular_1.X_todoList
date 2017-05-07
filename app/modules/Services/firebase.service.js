@@ -52,7 +52,7 @@
 
     }
     function signOutUser(){
-
+      auth.signOut();
     }
     /*====================== Private Methods ================================ */
     function init(){
