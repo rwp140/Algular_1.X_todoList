@@ -71,7 +71,7 @@
       for(let i =0, l =vm.list.length; i < l; i++){
         list_.push({value:vm.list[i].value});
       }
-      saveList(list_)
+      saveList(list_);
     }
     function signInButton(){
 
