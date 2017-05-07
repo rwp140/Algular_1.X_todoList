@@ -74,7 +74,12 @@
       saveList(list_);
     }
     function signInButton(){
-
+      if(vm.profileMode == "signIn"){
+        console.log(vm.profileMode);
+        fbSvc.signInUser(vm.userEmail,vm.userPassword);
+        //after promise return
+        vm.profileMode = "profile";
+      }
     }
     function signOutButton(){
 
