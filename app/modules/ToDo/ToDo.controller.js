@@ -87,7 +87,11 @@
       vm.profileMode = "signIn";
     }
     function signUpButton(){
-      fbSvc.signInUser("rwp140@gmail.com","tempPassword")
+      if(vm.profileMode == "signIn"){
+        fbSvc.signUpUser(vm.userEmail,vm.userPassword);
+        //after promis return
+        vm.profileMode = "profile";
+      }
     }
     function saveList(_list){
       fbSvc.writeData("testUser","lists/","testList",_list);
