@@ -42,12 +42,13 @@
       });
     }
     function signInUser(email,password){
-      auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+      auth.signInWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
       });
+
     }
     function signOutUser(){
 
