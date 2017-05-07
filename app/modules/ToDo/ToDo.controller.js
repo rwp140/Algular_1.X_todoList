@@ -24,6 +24,8 @@
     vm.list = [{value:" "},{value:" "}];
     //vm.logedIn = false;
     vm.profileMode = "signIn";
+    vm.userEmail = "";//<!> should be moved to profile controler add encryption
+    vm.userPassword = ""///<!> should be moved to profile controler add encryption
     vm.pageSize = 25;
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
