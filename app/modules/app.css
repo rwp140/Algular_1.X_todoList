@@ -16,6 +16,14 @@ body{
 .actionMenuButton:hover{
   color: darkgrey;
 }
+#profileBar{
+  display: flex;
+  flex-direction: column;
+}
+#profileBar div{
+  display: flex;
+  flex-direction: row;
+}
 #content{
   display: flex;
   flex-direction: row;
