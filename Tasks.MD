@@ -22,7 +22,7 @@
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
 
 ##current tasks
-#firebase itneractions
+###firebase itneractions
 - integrate q promise and firebase thenable interactions into code
 - get user information from firebase
 - update list data saving to attach user ID
@@ -33,11 +33,11 @@
 - add ability to log in and sign up by G+
 - re enable email log in, add encryption
 
-#beautification
+###beautification
 - switch todo list to cover mode if no logged in
 - add texture to cover and main content background
 
-#additional Functionalities
+###additional Functionalities
 - add buttons to raise or lower an item through the list
 - add check box to each list item
 - checking an item should add a strike through style
