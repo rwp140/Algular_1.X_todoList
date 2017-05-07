@@ -13,3 +13,4 @@ create a user and log in via: facebook, G+ or email, to be able to create a seri
 - above them the [+] will open up the list creation page where you may name the tab, and change the tab from its randomly selected colour, you will also be able to add  a string of tags, separated by a comma(,)
 - a search bar to the left of that element will allow you to pair those lists down by name and tag
 - the list will save by default after every change
+- and lastly at the bottom of each page, in the bottom left and right corners,
