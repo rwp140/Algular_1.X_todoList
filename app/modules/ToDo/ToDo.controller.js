@@ -22,6 +22,8 @@
     vm.displayList = [{value:" "},{value:" "}];
     vm.inputData = "";
     vm.list = [{value:" "},{value:" "}];
+    //vm.logedIn = false;
+    vm.profileMode = "signIn";
     vm.pageSize = 25;
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
