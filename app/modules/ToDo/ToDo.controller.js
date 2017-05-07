@@ -82,7 +82,9 @@
       }
     }
     function signOutButton(){
-
+      fbSvc.signOutUser();
+      //after promise return
+      vm.profileMode = "signIn";
     }
     function signUpButton(){
       fbSvc.signInUser("rwp140@gmail.com","tempPassword")
