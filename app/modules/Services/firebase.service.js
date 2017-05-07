@@ -27,6 +27,7 @@
       dataPoint.set(data);
     }
     function signUpUser(email,password){
+      //<!>needs thenable responce, and q.promise integration
       auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
