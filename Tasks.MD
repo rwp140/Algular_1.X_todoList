@@ -31,6 +31,10 @@
 - get user information from firebase (done)
 - update list data saving to attach user ID (done)
 - migrate profile interactions to separate module (moved to directive and service instead...)
+ - move html (done)
+  - create directive (done)
+  - create template (done)
+ - move code
 - load [default] list (done)
 - add ability to log in and sign up by Facebook (disable normal log in for now)
 - add list and profile persistence (sessions)
@@ -66,3 +70,4 @@
   B) clicking cover should bring to log in
 - clicking create new user should open up to a user creation page
   - user creation should allow user to connect with facebook, G+ or use an email or password
+- move profile into a controller
