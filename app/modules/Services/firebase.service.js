@@ -27,20 +27,28 @@
       dataPoint.set(data);
     }
     function signUpUser(email,password){
-      //<!>needs thenable responce, and q.promise integration
-      auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+      var deferred = $q.defer();
+      //note you can do .then(resolution/success,resolution/success instead of  .then(resolution/success).catch(resolution/success)
+      auth.createUserWithEmailAndPassword(email, password)
+      .then(function(user){
+        emailConfirm(user);
+        deferred.resolve(user);
+      }).catch(function(error) {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        //var errorCode = error.code;
+        //var errorMessage = error.message;
         // [START_EXCLUDE]
-        if (errorCode == 'auth/weak-password') {
+        if (error.code == 'auth/weak-password') {
          alert('The password is too weak.');
         } else {
-         alert(errorMessage);
+         alert(error.message);
         }
+        deferred.reject(error);
         //console.log(error);
         // [END_EXCLUDE]
       });
+
+      return deferred.promise;
     }
     function signInUser(email,password){
       auth.signInWithEmailAndPassword(email, password).catch(function(error) {
