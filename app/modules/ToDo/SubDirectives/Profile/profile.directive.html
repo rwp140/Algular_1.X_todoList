@@ -1,0 +1,8 @@
+<div id = "profileBar" ng-if="vm.profileMode == 'signIn'">
+  <input id = "email" name ="email" placeholder="user@email.com" type="text" ng-model = "vm.userEmail">
+  <input id = "password" name="password" placeholder="password" type="password" ng-model = "vm.userPassword">
+  <div>
+    <div class = "actionMenuButton" id = "signUpButton" ng-click="vm.signUpButton()">[signUp]</div>
+    <div class = "actionMenuButton" id = "signInButton" ng-click="vm.signInButton()">[signIn]</div>
+  </div>
+</div>
