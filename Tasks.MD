@@ -23,10 +23,15 @@
 
 ##current tasks
 ###firebase itneractions
-- integrate q promise and firebase thenable interactions into code
-- get user information from firebase
-- update list data saving to attach user ID
+- integrate q promise and firebase thenable interactions into code (done)
+  - sign in (done)
+  - sign up (done)
+  - sign out (done)
+  - write data (done)
+- get user information from firebase (done)
+- update list data saving to attach user ID (done)
 - migrate profile interactions to separate module
+- load [default] list (done)
 - add ability to log in and sign up by Facebook (disable normal log in for now)
 - add list and profile persistence (sessions)
 
