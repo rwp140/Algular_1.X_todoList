@@ -108,9 +108,14 @@
     }
     function signUpButton(){
       if(vm.profileMode == "signIn"){
-        fbSvc.signUpUser(vm.userEmail,vm.userPassword);
-        //after promis return
-        vm.profileMode = "profile";
+        fbSvc.signUpUser(vm.userEmail,vm.userPassword)
+        .then(function(user){
+          //console.log(userData);
+          alert("please verify user via the recived email, and then try login in, thank you! :) /n no need to refresh either.")
+          //vm.profileMode = "profile";
+        });
+      }
+    }
       }
     }
     function saveList(_list){
