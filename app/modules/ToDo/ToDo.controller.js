@@ -23,9 +23,13 @@
     vm.inputData = "";
     vm.list = [{value:" "},{value:" "}];
     //vm.logedIn = false;
+    //<!> move to profile.controler
     vm.profileMode = "signIn";
-    vm.userEmail = "";//<!> should be moved to profile controler add encryption
-    vm.userPassword = ""///<!> should be moved to profile controler add encryption
+    vm.profile
+    vm.user;
+    vm.userEmail = "";//<!> add encryption
+    vm.userPassword = ""///<!> add encryption
+    //</!> move to profile.controler
     vm.pageSize = 25;
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
