@@ -136,7 +136,26 @@
       }
     }
     function saveList(_list){
-      fbSvc.writeData("testUser","lists/","testList",_list);
+    //  let promise = new Promise((resolve, reject) => {
+      //  if (/* some async task is all good */) {
+      //    resolve('Success!');
+      //  } else {
+      //    reject('Oops... something went wrong');
+      //  }
+      //});
+      /* ^ default promise
+       Q/promise notes
+       as promiseVar.then(resolutionFunction(),RegectionFunction(error))
+       both results are q/promises
+       promises are native to JS since 2015, as well as angulars Q
+      */
+      var defer = $q.defer();
+      fbSvc.writeData(vm.user.uid,"lists/","testList",_list)
+      .then(function(){
+        console.log("saved");
+      },function(rejected){
+        console.log(rejected);
+      });
     }
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
