@@ -101,9 +101,10 @@
       }
     }
     function signOutButton(){
-      fbSvc.signOutUser();
-      //after promise return
-      vm.profileMode = "signIn";
+      fbSvc.signOutUser()
+      .then(function(user){
+        vm.profileMode = "signIn";
+      });
     }
     function signUpButton(){
       if(vm.profileMode == "signIn"){
