@@ -4,8 +4,8 @@
   angular.module('services')
 		.service('firebaseService', firebaseService);
 
-	firebaseService.$inject = [];
-	function firebaseService() {
+	firebaseService.$inject = ['$q'];
+	function firebaseService($q) {
 		var svc = this;
     /*====================== Delegation Variables =========================== */
     svc.signInUser = signInUser;
