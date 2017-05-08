@@ -4,8 +4,8 @@
   angular.module('ToDo')
   .controller('ToDoController',ToDoController);
 
-  ToDoController.$inject = ['firebaseService'];
-  function ToDoController(firebaseService){
+  ToDoController.$inject = ['$q','firebaseService'];
+  function ToDoController($q,firebaseService){
     var vm = this;
     /*====================== Delegation Variables =========================== */
     vm.addItem = addItem;
