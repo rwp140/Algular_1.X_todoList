@@ -116,6 +116,23 @@
         });
       }
     }
+    function userDataCheck(_user){
+      vm.user = _user;
+      if(vm.user.displayName == "" || vm.user.displayName == null){
+        var displayName = vm.user.email.split('@')[0];
+        displayName = prompt("Enter your desired display name",displayName);
+        vm.user.updateProfile({
+          displayName: displayName,
+          photoURL: ""
+        }).then(function() {
+          // Profile updated successfully!
+          // "Jane Q. User"
+           displayName = vm.user.displayName;
+           //photoURL = user.photoURL;
+        }, function(error) {
+          // An error happened.
+          console.error("display name could not be updated please contact support");
+        });
       }
     }
     function saveList(_list){
