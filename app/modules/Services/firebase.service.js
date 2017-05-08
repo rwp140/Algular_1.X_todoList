@@ -51,13 +51,23 @@
       return deferred.promise;
     }
     function signInUser(email,password){
-      auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      var deferred = $q.defer();
+      //note you can do .then(resolution/success,resolution/success instead of  .then(resolution/success).catch(resolution/success)
+      auth.signInWithEmailAndPassword(email, password)
+      .then(function(user){
+        //console.log("then succes");
+        deferred.resolve(user);
+      })
+      .catch(function(error) {
+        //console.log("then failure");
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        //var errorCode = error.code;
+        //var errorMessage = error.message;
+        deferred.reject(error);
         // ...
       });
 
+      return deferred.promise;
     }
     function signOutUser(){
       auth.signOut();
