@@ -8,6 +8,7 @@
 	function firebaseService($q) {
 		var svc = this;
     /*====================== Delegation Variables =========================== */
+    svc.emailConfirm = emailConfirm;
     svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
     svc.signUpUser = signUpUser;
@@ -19,6 +20,12 @@
     var auth;
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
+    function emailConfirm(_user){
+      _user.sendEmailVerification()
+      .catch(function(error){
+        console.error(error.code+':'+error.message);
+      });
+    }
       var path = 'users/'+userID+"/"+path+dataID;
       //console.log(path);
       //console.log(data);
