@@ -96,6 +96,15 @@
             signOutButton();
           }else{
             userDataCheck(userData);//<!> replace to profile controler call
+            //<!>move to load list data function
+            clearDisplay();
+            fbSvc.readDataOnce(userData.uid,"lists/","testList").then(function(_list){
+              console.log(vm.list);
+              vm.list = _list;
+              loadList();
+            });
+            //</!>
+            vm.profileMode = "profile";
           }
         });
       }
