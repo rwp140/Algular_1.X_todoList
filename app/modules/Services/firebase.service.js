@@ -9,6 +9,7 @@
 		var svc = this;
     /*====================== Delegation Variables =========================== */
     svc.emailConfirm = emailConfirm;
+    svc.readDataOnce = readDataOnce;
     svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
     svc.signUpUser = signUpUser;
@@ -26,11 +27,21 @@
         console.error(error.code+':'+error.message);
       });
     }
+    function readDataOnce(userID,path,dataID){
+      var deferred = $q.defer();
+      //var uid = auth.currentUser.uid;
       var path = 'users/'+userID+"/"+path+dataID;
-      //console.log(path);
-      //console.log(data);
+      var data;
       var dataPoint = database.ref(path);
-      dataPoint.set(data);
+      dataPoint.once('value')
+      .then(function(snapshot){
+        data = snapshot.val();
+        console.log(data);
+        deferred.resolve(data);
+      }).catch(function(error){
+        deferred.reject(error);
+      });
+      return deferred.promise;
     }
     function signUpUser(email,password){
       var deferred = $q.defer();
