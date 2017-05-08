@@ -70,7 +70,16 @@
       return deferred.promise;
     }
     function signOutUser(){
-      auth.signOut();
+      var deferred = $q.defer();
+      //note you can do .then(resolution/success,resolution/success instead of  .then(resolution/success).catch(resolution/success)
+      auth.signOut().then(function(){
+        deferred.resolve(true);
+      }).catch(function(error){
+        deferred.reject(error);
+      });
+
+      return deferred.promise;
+    }
     }
     /*====================== Private Methods ================================ */
     function init(){
