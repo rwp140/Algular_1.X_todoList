@@ -159,7 +159,7 @@
     }
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
-      vm.displayList[index] = item;
+      vm.displayList[index] = {value:item.value, editMode: false};
     }
     function clearDisplay(){
       vm.displayList = createEmptyList(vm.pageSize);
