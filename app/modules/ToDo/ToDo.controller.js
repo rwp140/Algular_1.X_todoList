@@ -76,9 +76,24 @@
     function signInButton(){
       if(vm.profileMode == "signIn"){
         console.log(vm.profileMode);
-        fbSvc.signInUser(vm.userEmail,vm.userPassword);
-        //after promise return
-        vm.profileMode = "profile";
+        fbSvc.signInUser(vm.userEmail,vm.userPassword)
+        .then(function(userData){
+          //console.log("success!");
+          //console.log(userData);
+          if(!userData.emailVerified){
+            console.log("not verified");
+            alert("user not verified");
+            let resend = confirm("resend verification?")
+            if(confirm != null ||confirm != "" ){
+              //call fbSvc.emailConfirm
+              console.log("confirming email");
+              fbSvc.emailConfirm(userData);
+            }
+            signOutButton();
+          }else{
+            userDataCheck(userData);//<!> replace to profile controler call
+          }
+        });
       }
     }
     function signOutButton(){
