@@ -30,7 +30,7 @@
   - write data (done)
 - get user information from firebase (done)
 - update list data saving to attach user ID (done)
-- migrate profile interactions to separate module
+- migrate profile interactions to separate module (moved to directive and service instead...)
 - load [default] list (done)
 - add ability to log in and sign up by Facebook (disable normal log in for now)
 - add list and profile persistence (sessions)
