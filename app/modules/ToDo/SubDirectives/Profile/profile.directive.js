@@ -11,12 +11,8 @@
       scope: true,
       templateUrl: 'modules/ToDo/SubDirectives/profile/profile.directive.html',
       link: function(scope) {
-        //var dir = this;
-        var psvc = profileService;
-        scope.psvc = psvc;
-        //scope.dir = this;
+        scope.pSvc = profileService;
         function init(){
-          //console.log(dir.psvc.profileMode);
         }
 
         init();
