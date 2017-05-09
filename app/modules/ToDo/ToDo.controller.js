@@ -39,6 +39,7 @@
         vm.list.splice(index,0,item);
         vm.inputData = "";
         addItemToDisplayList(index,item);
+        saveButton();
     }
     function addItemButton($event){
         if($event.code === 'Enter'){
@@ -49,6 +50,7 @@
     function editItem(index, content){
       vm.list[index].value = content;
       vm.displayList[index].value = content;
+      saveButton();
     }
     function editModeButton($index){
       if(vm.displayList[$index].editMode){
@@ -67,6 +69,7 @@
       vm.list.splice(index,1);
       clearDisplay();
       loadList();
+      saveButton();
     }
     function saveButton(){
       //set up save list
