@@ -117,6 +117,8 @@
       fbSvc.signOutUser()
       .then(function(user){
         pSvc.profileMode = "signIn";
+        clearDisplay();
+        pSvc.ClearUserData();
       });
     }
     function signUpButton(){
