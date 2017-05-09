@@ -34,8 +34,10 @@
  - move html (done)
   - create directive (done)
   - create template (done)
- - move code
+  - move variables (done)
+  - move functions?
 - load [default] list (done)
+- change manual save to auto save 
 - add ability to log in and sign up by Facebook (disable normal log in for now)
 - add list and profile persistence (sessions)
 
