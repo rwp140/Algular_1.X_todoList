@@ -4,8 +4,8 @@
   angular.module('ToDo')
   .controller('ToDoController',ToDoController);
 
-  ToDoController.$inject = ['$q','firebaseService'];
-  function ToDoController($q,firebaseService){
+  ToDoController.$inject = ['$q','firebaseService','profileService'];
+  function ToDoController($q,firebaseService,profileService){
     var vm = this;
     /*====================== Delegation Variables =========================== */
     vm.addItem = addItem;
@@ -24,16 +24,16 @@
     vm.list = [{value:" "},{value:" "}];
     //vm.logedIn = false;
     //<!> move to profile.controler
-    vm.profileMode = "signIn";
-    vm.profile
-    vm.user;
-    vm.userEmail = "";//<!> add encryption
-    vm.userPassword = ""///<!> add encryption
+    //vm.profileMode = "signIn";
+    //vm.user;
+    //vm.userEmail = "";//<!> add encryption
+    //vm.userPassword = ""///<!> add encryption
     //</!> move to profile.controler
     vm.pageSize = 25;
     /*====================== private Variables ============================== */
     /*====================== Services ======================================= */
     var fbSvc = firebaseService;
+    var pSvc = profileService;
     /*====================== Public Methods ================================= */
     function addItem(index,item){
         vm.list.splice(index,0,item);
@@ -52,9 +52,9 @@
     }
     function editModeButton($index){
       if(vm.displayList[$index].editMode){
-        console.log(vm.list[$index].value);
+        //console.log(vm.list[$index].value);
         editItem($index,vm.displayList[$index].value);
-        console.log(vm.list[$index].value);
+        //console.log(vm.list[$index].value);
       }
       vm.displayList[$index].editMode = !vm.displayList[$index].editMode;
     }
@@ -78,19 +78,20 @@
       saveList(list_);
     }
     function signInButton(){
-      if(vm.profileMode == "signIn"){
-        console.log(vm.profileMode);
-        fbSvc.signInUser(vm.userEmail,vm.userPassword)
+      if(pSvc.profileMode == "signIn"){
+        //console.log(pSvc.profileMode);
+        //console.log(pSvc.userEmail);
+        fbSvc.signInUser(pSvc.userEmail,pSvc.userPassword)
         .then(function(userData){
           //console.log("success!");
           //console.log(userData);
           if(!userData.emailVerified){
-            console.log("not verified");
+            //console.log("not verified");
             alert("user not verified");
             let resend = confirm("resend verification?")
             if(confirm != null ||confirm != "" ){
               //call fbSvc.emailConfirm
-              console.log("confirming email");
+              //console.log("confirming email");
               fbSvc.emailConfirm(userData);
             }
             signOutButton();
@@ -99,12 +100,12 @@
             //<!>move to load list data function
             clearDisplay();
             fbSvc.readDataOnce(userData.uid,"lists/","testList").then(function(_list){
-              console.log(vm.list);
+              //console.log(vm.list);
               vm.list = _list;
               loadList();
             });
             //</!>
-            vm.profileMode = "profile";
+            pSvc.profileMode = "profile";
           }
         });
       }
@@ -112,36 +113,38 @@
     function signOutButton(){
       fbSvc.signOutUser()
       .then(function(user){
-        vm.profileMode = "signIn";
+        pSvc.profileMode = "signIn";
       });
     }
     function signUpButton(){
-      if(vm.profileMode == "signIn"){
-        fbSvc.signUpUser(vm.userEmail,vm.userPassword)
+      if(pSvc.profileMode == "signIn"){
+        fbSvc.signUpUser(pSvc.userEmail,pSvc.userPassword)
         .then(function(user){
           //console.log(userData);
           alert("please verify user via the recived email, and then try login in, thank you! :) /n no need to refresh either.")
-          //vm.profileMode = "profile";
+          //pSvc.profileMode = "profile";
         });
       }
     }
     function userDataCheck(_user){
-      vm.user = _user;
-      if(vm.user.displayName == "" || vm.user.displayName == null){
-        var displayName = vm.user.email.split('@')[0];
+      pSvc.user = _user;
+      if(pSvc.user.displayName == "" || pSvc.user.displayName == null){
+        var displayName = pSvc.user.email.split('@')[0];
         displayName = prompt("Enter your desired display name",displayName);
-        vm.user.updateProfile({
+        pSvc.user.updateProfile({
           displayName: displayName,
           photoURL: ""
         }).then(function() {
           // Profile updated successfully!
           // "Jane Q. User"
-           displayName = vm.user.displayName;
+           displayName = pSvc.user.displayName;
            //photoURL = user.photoURL;
         }, function(error) {
           // An error happened.
           console.error("display name could not be updated please contact support");
         });
+      }else{
+        console.log(pSvc.user.displayName);
       }
     }
     function saveList(_list){
@@ -159,9 +162,9 @@
        promises are native to JS since 2015, as well as angulars Q
       */
       var defer = $q.defer();
-      fbSvc.writeData(vm.user.uid,"lists/","testList",_list)
+      fbSvc.writeData(pSvc.user.uid,"lists/","testList",_list)
       .then(function(){
-        console.log("saved");
+        //console.log("saved");
       },function(rejected){
         console.log(rejected);
       });
