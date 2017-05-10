@@ -22,7 +22,7 @@
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
 
 ##current tasks
-###firebase itneractions
+###firebase itneractions (task done, removing list)
 - integrate q promise and firebase thenable interactions into code (done)
   - sign in (done)
   - sign up (done)
@@ -39,11 +39,6 @@
 - load [default] list (done)
 - change manual save to auto save (done)
 - auto log IN (done)
-- add ability to log in and sign up by Facebook (disable normal log in for now)
-- add list and profile persistence (sessions)
-
-- add ability to log in and sign up by G+
-- re enable email log in, add encryption
 
 ###beautification
 - switch todo list to cover mode if no logged in
@@ -74,3 +69,7 @@
 - clicking create new user should open up to a user creation page
   - user creation should allow user to connect with facebook, G+ or use an email or password
 - move profile into a controller
+- add ability to log in and sign up by Facebook (disable normal log in for now)
+- add list and profile persistence (sessions)
+- add ability to log in and sign up by G+
+- re enable email log in, add encryption
