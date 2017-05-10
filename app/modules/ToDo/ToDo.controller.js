@@ -101,13 +101,7 @@
           }else{
             userDataCheck(userData);//<!> replace to profile controler call
             //<!>move to load list data function
-            clearDisplay();
-            fbSvc.readDataOnce(userData.uid,"lists/","testList").then(function(_list){
-              //console.log(vm.list);
-              vm.list = _list;
-              loadList();
-            });
-            //</!>
+            loadListData(userData.uid);
             pSvc.profileMode = "profile";
           }
         });
@@ -192,6 +186,14 @@
     function init(){
       vm.displayList = createEmptyList(vm.pageSize);
       vm.list = [];
+    function loadListData(_uid){
+      clearDisplay();
+      fbSvc.readDataOnce(_uid,"lists/","testList").then(function(_list){
+        //console.log(vm.list);
+        vm.list = _list;
+        loadList();
+      });
+      //</!>
     }
     function loadList(){
       for(let i=0,l=vm.list.length;i<l;i++){
