@@ -7,7 +7,7 @@
 1. Use the latest in AngularJs 1.x =done=
 2. Have an input field to input the todo item. (done)
 3. Once (2) has been input, the todo item must be automatically be reflected on the view itself. (done)
-4. On refresh of the page, the todo items that was input previously MUST still be present.
+4. On refresh of the page, the todo items that was input previously MUST still be present. (done)
 5. a) Able to remove a todo item (done)
    b) as per (4), once a page refresh is done, the item must also be removed (done)
 6. a) Able to edit a todo item (done)
@@ -38,7 +38,7 @@
   - move functions?
 - load [default] list (done)
 - change manual save to auto save (done)
-- auto log IN
+- auto log IN (done)
 - add ability to log in and sign up by Facebook (disable normal log in for now)
 - add list and profile persistence (sessions)
 
