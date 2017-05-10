@@ -9,6 +9,7 @@
 		var svc = this;
     /*====================== Delegation Variables =========================== */
     svc.emailConfirm = emailConfirm;
+    svc.initializeFireBase = initializeFireBase;
     svc.readDataOnce = readDataOnce;
     svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
@@ -26,6 +27,21 @@
       .catch(function(error){
         console.error(error.code+':'+error.message);
       });
+    }
+    function initializeFireBase(){
+      console.log("starting firebaseapp");
+      var config = {
+         apiKey: "AIzaSyD9wFQXNmqInupKbaFOrX_lxq29FmaahFo",
+         authDomain: "angular-todo-3c46d.firebaseapp.com",
+         databaseURL: "https://angular-todo-3c46d.firebaseio.com/",
+         //storageBucket: "bucket.appspot.com",
+         //messagingSenderId: "<SENDER_ID>"
+       };
+       var fbApp = firebase.initializeApp(config);
+
+       // Get a reference to the database service
+       database = fbApp.database();
+       auth = fbApp.auth();
     }
     function readDataOnce(userID,path,dataID){
       var deferred = $q.defer();
@@ -113,23 +129,9 @@
     }
     /*====================== Private Methods ================================ */
     function init(){
-      initializeFireBase();
+      //initializeFireBase();
     }
-    function initializeFireBase(){
-      console.log("starting firebaseapp");
-      var config = {
-         apiKey: "AIzaSyD9wFQXNmqInupKbaFOrX_lxq29FmaahFo",
-         authDomain: "angular-todo-3c46d.firebaseapp.com",
-         databaseURL: "https://angular-todo-3c46d.firebaseio.com/",
-         //storageBucket: "bucket.appspot.com",
-         //messagingSenderId: "<SENDER_ID>"
-       };
-       var fbApp = firebase.initializeApp(config);
 
-       // Get a reference to the database service
-       database = fbApp.database();
-       auth = fbApp.auth();
-    }
     /*====================== Actions ======================================== */
     init();
 	}

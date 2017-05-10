@@ -186,6 +186,16 @@
     function init(){
       vm.displayList = createEmptyList(vm.pageSize);
       vm.list = [];
+      fbSvc.initializeFireBase();
+      fbSvc.checkUserSession().then(function(user){
+        pSvc.user = user;
+        userDataCheck(user);
+        loadListData(user.uid);
+        pSvc.profileMode = "profile";
+      },function(){
+
+      });
+    }
     function loadListData(_uid){
       clearDisplay();
       fbSvc.readDataOnce(_uid,"lists/","testList").then(function(_list){
