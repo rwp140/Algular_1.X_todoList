@@ -8,6 +8,7 @@
 	function firebaseService($q) {
 		var svc = this;
     /*====================== Delegation Variables =========================== */
+    svc.checkUserSession = checkUserSession;
     svc.emailConfirm = emailConfirm;
     svc.initializeFireBase = initializeFireBase;
     svc.readDataOnce = readDataOnce;
@@ -22,6 +23,20 @@
     var auth;
     /*====================== Services ======================================= */
     /*====================== Public Methods ================================= */
+    function checkUserSession(){
+      var deferred = $q.defer();
+      auth.onAuthStateChanged(function(user) {
+       if (user) {
+         // User is signed in.
+         deferred.resolve(user);
+       } else {
+         // No user is signed in.
+         deferred.reject();
+       }
+     });
+
+     return deferred.promise;
+    }
     function emailConfirm(_user){
       _user.sendEmailVerification()
       .catch(function(error){
