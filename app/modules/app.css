@@ -34,6 +34,9 @@ body{
   padding: 1% 5%;
   margin: 2.5%;
 }
+#content h1{
+  color: lightgrey;
+}
 #tabs{
   background: grey;
   width: 150px;
