@@ -24,7 +24,7 @@
     vm.list = [{value:" "},{value:" "}];
     //vm.logedIn = false;
     //<!> move to profile.controler
-    //vm.profileMode = "signIn";
+    vm.profileMode = "signIn";//<!> temp
     //vm.user;
     //vm.userEmail = "";//<!> add encryption
     //vm.userPassword = ""///<!> add encryption
@@ -103,6 +103,7 @@
             //<!>move to load list data function
             loadListData(userData.uid);
             pSvc.profileMode = "profile";
+            vm.profileMode = "profile";
           }
         });
       }
@@ -111,6 +112,7 @@
       fbSvc.signOutUser()
       .then(function(user){
         pSvc.profileMode = "signIn";
+        vm.profileMode = "signIn";
         clearDisplay();
         pSvc.ClearUserData();
       });
@@ -192,9 +194,11 @@
         userDataCheck(user);
         loadListData(user.uid);
         pSvc.profileMode = "profile";
+        vm.profileMode = "profile";
       },function(){
 
       });
+      console.log();
     }
     function loadListData(_uid){
       clearDisplay();
