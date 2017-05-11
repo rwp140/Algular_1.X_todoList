@@ -4,7 +4,7 @@
   angular.module('ToDo')
   .directive('cover',cover);
 
-  cover.$inject = [''];
+  //cover.$inject = [''];
   function cover (){
     return {
       restrict: 'E',
