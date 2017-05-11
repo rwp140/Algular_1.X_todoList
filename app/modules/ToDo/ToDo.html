@@ -8,7 +8,7 @@
    <profile>
    </profile>
 </div>
-<div id = "content">
+<div id = "content" ng-if="vm.profileMode == 'profile'">
   <div id = 'tabs'></div>
   <div id = "mainBody">
     <input id ="mainInput" name="mainInput" placeholder="enter To Do Item Text Here (press enter to save)" type="text"ng-model="vm.inputData" ng-keydown="vm.addItemButton($event)"/>
