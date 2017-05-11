@@ -25,6 +25,8 @@ body{
   flex-direction: row;
 }
 #content{
+  min-height: 778px;
+  min-width: 800px;
   display: flex;
   flex-direction: row;
   background: black;
