@@ -30,6 +30,7 @@ body{
   display: flex;
   flex-direction: row;
   background: black;
+  background-image: url(resources/coverTexture.png);
   padding: 1% 5%;
   margin: 2.5%;
 }
