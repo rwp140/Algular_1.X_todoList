@@ -164,7 +164,7 @@
        promises are native to JS since 2015, as well as angulars Q
       */
       var defer = $q.defer();
-      fbSvc.writeData(pSvc.user.uid,"lists/","testList",_list)
+      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name,_list)
       .then(function(){
         //console.log("saved");
       },function(rejected){
@@ -203,7 +203,7 @@
     }
     function loadListData(_uid){
       clearDisplay();
-      fbSvc.readDataOnce(_uid,"lists/","testList").then(function(_list){
+      fbSvc.readDataOnce(_uid,"lists/",vm.tab.name).then(function(_list){
         //console.log(vm.list);
         vm.list = _list;
         loadList();
