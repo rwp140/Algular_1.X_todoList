@@ -24,6 +24,15 @@ body{
   display: flex;
   flex-direction: row;
 }
+.tab{
+  background-image: url(resources/redBookmark.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+}
+.tab h2{
+  text-align: left;
+}
 #content{
   min-height: 778px;
   min-width: 800px;
