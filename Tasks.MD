@@ -63,6 +63,7 @@
 - - add search action function
 - - add filter by name function
 - - add filter by tag function
+add "pages" functionality to lists
 
 
 ###beautify, and extend user log in
