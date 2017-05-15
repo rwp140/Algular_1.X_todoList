@@ -8,10 +8,11 @@
   function tab (){
     return {
       restrict: 'E',
-      scope: true,
-      templateUrl: 'modules/ToDo/SubDirectives/profile/profile.directive.html',
+      transclude:true,
+      scope: {},
+      templateUrl: 'modules/ToDo/SubDirectives/tabDirective/tab.directive.html',
       link: function(scope) {
-        
+
         function init(){
         }
 
