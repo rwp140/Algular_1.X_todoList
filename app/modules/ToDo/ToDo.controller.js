@@ -217,10 +217,13 @@
     }
     function loadListData(_uid){
       clearDisplay();
-      fbSvc.readDataOnce(_uid,"lists/",vm.tab.name+"/list").then(function(_list){
+      fbSvc.readDataOnce(_uid,"lists/",vm.tab.name+"/list")
+      .then(function(_list){
         //console.log(vm.list);
         vm.list = _list;
         loadList();
+
+
       });
       //</!>
     }

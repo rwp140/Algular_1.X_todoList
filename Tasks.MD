@@ -20,7 +20,6 @@
 12. Upload all your code to github. =done=
 
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
-
 ##personal tasks and features
 ###beautification tasks
 - switch todo list to cover mode if not currently logged in (done)
