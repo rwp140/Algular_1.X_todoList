@@ -168,6 +168,19 @@
       fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/list",_list)
       .then(function(){
         //console.log("saved");
+        fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/tags",vm.tab.tags)
+        .then(function(){
+          //console.log("saved");
+          fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/colour",vm.tab.colour)
+          .then(function(){
+            //console.log("saved");
+
+          },function(rejected){
+            console.log(rejected.message);
+          });
+        },function(rejected){
+          console.log(rejected.message);
+        });
       },function(rejected){
         console.log(rejected);
       });
