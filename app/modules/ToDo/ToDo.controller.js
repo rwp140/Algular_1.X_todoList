@@ -22,7 +22,7 @@
     vm.displayList = [{value:" "},{value:" "}];
     vm.inputData = "";
     vm.list = [{value:" "},{value:" "}];
-    vm.tab = {name:"testList",colour:""};
+    vm.tab = {name:"testList",colour:"",tags:["test","tasks"]};
     //vm.logedIn = false;
     //<!> move to profile.controler
     vm.profileMode = "signIn";//<!> temp
