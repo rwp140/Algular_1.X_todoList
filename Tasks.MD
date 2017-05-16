@@ -50,14 +50,15 @@
 - should be able to flip through pages for lists with more then [PageSize]
 ####tasks
 - tabs [tabs should lead to a connected list]
-- - add ribbon textures
-- - create tab template
-- - - [name],
+- - add ribbon textures (done)
+- - create tab template (done)
+- - - [name], (done)
 - - - onclick go to list(listID),
 - - - css: background colour = colour property, colour: black
-- - - use ribbon texture
-- - create tab directive
-- - - properties: colour, name, listID, tags[]
+- - - use ribbon texture (done)
+- - create tab directive (done)
+- - create tab object
+- - - properties: colour, name/listID, tags[]
 - add search bar to todo List tempalte
 - add search function to to do controller
 - - add search action function
