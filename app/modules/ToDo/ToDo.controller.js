@@ -182,7 +182,7 @@
           console.log(rejected.message);
         });
       },function(rejected){
-        console.log(rejected);
+        console.log(rejected.message);
       });
     }
     /*====================== Private Methods ================================ */
