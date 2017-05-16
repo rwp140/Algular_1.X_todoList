@@ -163,8 +163,9 @@
        both results are q/promises
        promises are native to JS since 2015, as well as angulars Q
       */
+      //vm.tab.list = _list;
       var defer = $q.defer();
-      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name,_list)
+      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/list",_list)
       .then(function(){
         //console.log("saved");
       },function(rejected){
