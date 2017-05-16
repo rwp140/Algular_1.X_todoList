@@ -224,6 +224,14 @@
       });
       //</!>
     }
+    function loadTabData(_uid){
+      //get number of tabs?
+      //start loop [for]
+        //load tab name
+        //load tab colour
+        //load tab list
+      //end loop repeate tell index equals tab count
+    }
     function loadList(){
       for(let i=0,l=vm.list.length;i<l;i++){
         addItemToDisplayList(i,vm.list[i]);
