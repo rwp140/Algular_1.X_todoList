@@ -198,6 +198,8 @@
         //load tab colour
         //load tab list
       //end loop repeate tell index equals tab count
+    function saveTab(){
+
     }
     function loadList(){
       for(let i=0,l=vm.list.length;i<l;i++){
