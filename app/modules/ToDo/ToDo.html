@@ -9,7 +9,7 @@
    </profile>
 </div>
 <div id = "content" ng-if="vm.profileMode == 'profile'">
-  <div id = 'tabs'><tab>{{vm.tab.name}}</tab></div>
+  <div id = 'tabs'ng-clic=""><tab>{{vm.tab.name}}</tab></div>
   <div id = "mainBody">
     <input id ="mainInput" name="mainInput" placeholder="enter To Do Item Text Here (press enter to save)" type="text"ng-model="vm.inputData" ng-keydown="vm.addItemButton($event)"/>
     <!--<div class=""  ng-repeat = 'item in vm.list' >

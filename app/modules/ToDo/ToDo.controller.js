@@ -9,14 +9,14 @@
     var vm = this;
     /*====================== Delegation Variables =========================== */
     vm.addItem = addItem;
-    vm.addItemButton = addItemButton;
+    vm.addItemAction = addItemAction;
     vm.editItem = editItem;
-    vm.editModeButton = editModeButton;
+    vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
-    vm.saveButton = saveButton;
-    vm.signInButton = signInButton;
-    vm.signOutButton = signOutButton;
-    vm.signUpButton = signUpButton;
+    vm.saveAction = saveAction;
+    vm.signInAction = signInAction;
+    vm.signOutAction = signOutAction;
+    vm.signUpAction = signUpAction;
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
@@ -40,9 +40,9 @@
         vm.list.splice(index,0,item);
         vm.inputData = "";
         addItemToDisplayList(index,item);
-        saveButton();
+        saveAction();
     }
-    function addItemButton($event){
+    function addItemAction($event){
         if($event.code === 'Enter'){
           var item = {value:vm.inputData, editMode: false};
           addItem(vm.list.length,item)
@@ -51,9 +51,9 @@
     function editItem(index, content){
       vm.list[index].value = content;
       vm.displayList[index].value = content;
-      saveButton();
+      saveAction();
     }
-    function editModeButton($index){
+    function editModeAction($index){
       if(vm.displayList[$index].editMode){
         //console.log(vm.list[$index].value);
         editItem($index,vm.displayList[$index].value);
@@ -63,16 +63,16 @@
     }
     function exitEditMode($event,$index){
       if($event.code === 'Enter'){
-        editModeButton($index);
+        editModeAction($index);
       }
     }
     function removeItem(index){
       vm.list.splice(index,1);
       clearDisplay();
       loadList();
-      saveButton();
+      saveAction();
     }
-    function saveButton(){
+    function saveAction(){
       //set up save list
       //to get rid of angular hash key and keys used only client side
       var list_ = []
@@ -81,7 +81,7 @@
       }
       saveList(list_);
     }
-    function signInButton(){
+    function signInAction(){
       if(pSvc.profileMode == "signIn"){
         //console.log(pSvc.profileMode);
         //console.log(pSvc.userEmail);
@@ -98,7 +98,7 @@
               //console.log("confirming email");
               fbSvc.emailConfirm(userData);
             }
-            signOutButton();
+            signOutAction();
           }else{
             userDataCheck(userData);//<!> replace to profile controler call
             //<!>move to load list data function
@@ -109,7 +109,7 @@
         });
       }
     }
-    function signOutButton(){
+    function signOutAction(){
       fbSvc.signOutUser()
       .then(function(user){
         pSvc.profileMode = "signIn";
@@ -118,7 +118,7 @@
         pSvc.ClearUserData();
       });
     }
-    function signUpButton(){
+    function signUpAction(){
       if(pSvc.profileMode == "signIn"){
         fbSvc.signUpUser(pSvc.userEmail,pSvc.userPassword)
         .then(function(user){
