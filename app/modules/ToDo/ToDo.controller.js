@@ -149,42 +149,6 @@
         console.log(pSvc.user.displayName);
       }
     }
-    function saveList(_list){
-    //  let promise = new Promise((resolve, reject) => {
-      //  if (/* some async task is all good */) {
-      //    resolve('Success!');
-      //  } else {
-      //    reject('Oops... something went wrong');
-      //  }
-      //});
-      /* ^ default promise
-       Q/promise notes
-       as promiseVar.then(resolutionFunction(),RegectionFunction(error))
-       both results are q/promises
-       promises are native to JS since 2015, as well as angulars Q
-      */
-      //vm.tab.list = _list;
-      var defer = $q.defer();
-      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/list",_list)
-      .then(function(){
-        //console.log("saved");
-        fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/tags",vm.tab.tags)
-        .then(function(){
-          //console.log("saved");
-          fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/colour",vm.tab.colour)
-          .then(function(){
-            //console.log("saved");
-
-          },function(rejected){
-            console.log(rejected.message);
-          });
-        },function(rejected){
-          console.log(rejected.message);
-        });
-      },function(rejected){
-        console.log(rejected.message);
-      });
-    }
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       vm.displayList[index] = {value:item.value, editMode: false};
@@ -239,6 +203,41 @@
       for(let i=0,l=vm.list.length;i<l;i++){
         addItemToDisplayList(i,vm.list[i]);
       }
+    function saveList(_list){
+    //  let promise = new Promise((resolve, reject) => {
+      //  if (/* some async task is all good */) {
+      //    resolve('Success!');
+      //  } else {
+      //    reject('Oops... something went wrong');
+      //  }
+      //});
+      /* ^ default promise
+       Q/promise notes
+       as promiseVar.then(resolutionFunction(),RegectionFunction(error))
+       both results are q/promises
+       promises are native to JS since 2015, as well as angulars Q
+      */
+      //vm.tab.list = _list;
+      var defer = $q.defer();
+      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/list",_list)
+      .then(function(){
+        //console.log("saved");
+        fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/tags",vm.tab.tags)
+        .then(function(){
+          //console.log("saved");
+          fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/colour",vm.tab.colour)
+          .then(function(){
+            //console.log("saved");
+
+          },function(rejected){
+            console.log(rejected.message);
+          });
+        },function(rejected){
+          console.log(rejected.message);
+        });
+      },function(rejected){
+        console.log(rejected.message);
+      });
     }
     /*====================== Actions ======================================== */
     init();
