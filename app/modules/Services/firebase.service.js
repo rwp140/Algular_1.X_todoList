@@ -11,6 +11,7 @@
     svc.checkUserSession = checkUserSession;
     svc.emailConfirm = emailConfirm;
     svc.initializeFireBase = initializeFireBase;
+    svc.readChildKeysOnce = readChildKeysOnce;
     svc.readKeysOnce = readKeysOnce;
     svc.readDataOnce = readDataOnce;
     svc.signInUser = signInUser;
@@ -86,6 +87,27 @@
         keyName = snapshot.key();
         console.log(data);
         deferred.resolve(keyName);
+      }).catch(function(error){
+        deferred.reject(error);
+      });
+      return deferred.promise;
+    }
+
+    function readChildKeysOnce(userID,_path){
+      var deferred = $q.defer();
+      //var uid = auth.currentUser.uid;
+      var path = 'users/'+userID+"/"+_path;
+      var keyNames = [];
+      var dataPoint = database.ref(path).orderByKey();
+      dataPoint.once('value')
+      .then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+          var key = childSnapshot.key
+          keyNames.push(key);
+        });
+        // keyName = snapshot.key();
+        // console.log(data);
+        deferred.resolve(keyNames);
       }).catch(function(error){
         deferred.reject(error);
       });
