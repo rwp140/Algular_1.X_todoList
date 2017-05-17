@@ -191,6 +191,11 @@
       });
       //</!>
     }
+    function loadList(){
+      for(let i=0,l=vm.list.length;i<l;i++){
+        addItemToDisplayList(i,vm.list[i]);
+      }
+    }
     function loadTabData(_uid){
       //get number of tabs?
       //start loop [for]
@@ -198,13 +203,11 @@
         //load tab colour
         //load tab list
       //end loop repeate tell index equals tab count
+
+    }
     function saveTab(){
 
     }
-    function loadList(){
-      for(let i=0,l=vm.list.length;i<l;i++){
-        addItemToDisplayList(i,vm.list[i]);
-      }
     function saveList(_list){
     //  let promise = new Promise((resolve, reject) => {
       //  if (/* some async task is all good */) {
