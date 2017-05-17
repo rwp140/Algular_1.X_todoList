@@ -69,7 +69,7 @@
       dataPoint.once('value')
       .then(function(snapshot){
         data = snapshot.val();
-        console.log(data);
+        //console.log(data);
         deferred.resolve(data);
       }).catch(function(error){
         deferred.reject(error);
