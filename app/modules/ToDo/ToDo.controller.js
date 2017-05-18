@@ -12,6 +12,7 @@
     vm.addItemAction = addItemAction;
     vm.editItem = editItem;
     vm.addList = addList;
+    vm.addListAction = addListAction;
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.saveAction = saveAction;
@@ -57,6 +58,9 @@
     }
     function addList(_tab){
 
+    }
+    function addListAction(){
+      //switches content to create list
     }
     function editModeAction($index){
       if(vm.displayList[$index].editMode){
