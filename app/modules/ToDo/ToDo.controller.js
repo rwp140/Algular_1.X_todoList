@@ -115,6 +115,7 @@
       saveList(list_);
     }
     function selectListAction(_indexer){
+      vm.listCreation = false;
       vm.indexer = _indexer;
 
       loadListData(pSvc.user.uid);
