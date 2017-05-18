@@ -51,6 +51,7 @@
 - - create tab directive (done)
 - - create tab object  (done)
 - - - properties: colour, name/listID, tags[]  (done)
+- add tab sort function which by default should sort by name alphabetically
 - add add new tab function to controller (done)
 - add "add tab" button to html (done)
 - add search bar to todo List template
