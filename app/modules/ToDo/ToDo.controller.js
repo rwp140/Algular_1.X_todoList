@@ -120,7 +120,6 @@
     function selectListAction(_indexer){
       vm.listCreation = false;
       vm.indexer = _indexer;
-
       loadListData(pSvc.user.uid);
     }
     function signInAction(){
@@ -260,11 +259,14 @@
       },function(error){
       });
     }
+
     function loadList(){
+      if(vm.list == null) vm.list = [];
       for(let i=0,l=vm.list.length;i<l;i++){
         addItemToDisplayList(i,vm.list[i]);
       }
     }
+
     function loadTabData(_uid){
       //get number of tabs?
       //start loop [for]
