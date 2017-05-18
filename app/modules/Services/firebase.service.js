@@ -12,7 +12,7 @@
     svc.emailConfirm = emailConfirm;
     svc.initializeFireBase = initializeFireBase;
     svc.readChildKeysOnce = readChildKeysOnce;
-    svc.readKeysOnce = readKeysOnce;
+    svc.readKeyOnce = readKeyOnce;
     svc.readDataOnce = readDataOnce;
     svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
