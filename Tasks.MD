@@ -20,11 +20,11 @@
 12. Upload all your code to github. =done=
 
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
-##personal tasks and features
+##personal tasks and features (bonus)
 
 ##additional base Functionalities
-- add check box to each list item [asap]
-- checking an item should add a strike through style
+- add check box to each list item (done)
+- checking an item should add a strike through style (done)
 - add buttons to raise or lower an item through the list
 - (optional)hovering over a empty display item should reveal a input field
 
@@ -52,8 +52,8 @@
 - - create tab object  (done)
 - - - properties: colour, name/listID, tags[]  (done)
 - add add new tab function to controller
-- add "add tab" button to html
-- add search bar to todo List tempalte
+- add "add tab" button to html (done)
+- add search bar to todo List template
 - add search function to "to do" controller
 - - add search action function
 - - add filter by name function
