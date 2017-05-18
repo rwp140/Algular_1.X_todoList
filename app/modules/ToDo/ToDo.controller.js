@@ -57,6 +57,11 @@
       vm.list[index].done = _done;
       vm.displayList[index].value = content;
       vm.displayList[index].done = _done;
+      if(vm.displayList[index].done){
+        vm.displayList[index].line = 'line-through';
+      } else {
+        vm.displayList[index].line = '';
+      }
       saveAction();
     }
     function addList(_tab){
@@ -171,7 +176,13 @@
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       //console.log(item);
-      vm.displayList[index] = {value:item.value, done: item.done, editMode: false};
+      var line_;
+      if(item.done){
+        line_ = 'line-through';
+      } else {
+        line_ = '';
+      }
+      vm.displayList[index] = {value:item.value, done: item.done, editMode: false, line:line_};
     }
     function clearDisplay(){
       vm.displayList = createEmptyList(vm.pageSize);
