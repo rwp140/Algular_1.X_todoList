@@ -6,6 +6,10 @@
 </div>
 <div id = "content" ng-if="vm.profileMode == 'profile'">
   <div id = 'tabs'>
+    <div>
+      <!--<div id = "searchBar"></div>-->
+      <!--<div id = "addTabButton" ng-click="vm.addList()">[add List]</div>-->
+    </div>
     <tab  ng-repeat ="tab in vm.tabs" ng-click="vm.selectListAction($index)" >{{tab.name}}</tab>
   </div>
   <div id = "mainBody">
