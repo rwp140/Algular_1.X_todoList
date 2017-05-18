@@ -1,5 +1,6 @@
 <div class = 'itemContent'>
   <div  ng-if="!item.editMode">
+    <input type="checkbox" ng-if="!item.empty" ng-model = "item.done" ng-click="vm.editItem($index,item.value,item.done)"/>
     {{item.value}}
   </div>
   <div  ng-if="item.editMode">
