@@ -13,7 +13,7 @@
     <tab ng-click="" >{{tab.name}}</tab>
   </div>
   <div id = "mainBody">
-    <input id ="mainInput" name="mainInput" placeholder="enter To Do Item Text Here (press enter to save)" type="text"ng-model="vm.inputData" ng-keydown="vm.addItemButton($event)"/>
+    <input id ="mainInput" name="mainInput" placeholder="enter To Do Item Text Here (press enter to save)" type="text"ng-model="vm.inputData" ng-keydown="vm.addItemAction($event)"/>
     <!--<div class=""  ng-repeat = 'item in vm.list' >
       {{item}}
     </div>-->
