@@ -9,6 +9,6 @@
 </div>
 <div class='buttons'  ng-if="!item.empty">
   <div class = 'item-Button editItem-Button' ng-click="vm.editModeAction($index)">[e]</div><!--repalce with pencil icon-->
-  <div class = 'item-Button addItem-Button' ng-click="vm.addItem($index+1,{value:vm.inputData, editMode: true})"> [+] </div>
+  <div class = 'item-Button addItem-Button' ng-click="vm.addItem($index+1,{value:vm.inputData,done:false, editMode: true})"> [+] </div>
   <div class = 'item-Button removeItem-Button' ng-click="vm.removeItem($index)"> [X] </div>
 </div>

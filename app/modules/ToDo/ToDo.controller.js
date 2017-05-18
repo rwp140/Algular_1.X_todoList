@@ -21,7 +21,7 @@
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
     vm.inputData = "";
-    vm.list = [{value:" "},{value:" "}];
+    vm.list = [{value:" ",done:false},{value:" ",done:false}];
     vm.tabs = [{name:"testList",colour:"",tags:["test","tasks"]}];
     vm.indexer = 0;
     //vm.logedIn = false;
@@ -45,7 +45,7 @@
     }
     function addItemAction($event){
         if($event.code === 'Enter'){
-          var item = {value:vm.inputData, editMode: false};
+          var item = {value:vm.inputData, done: false, editMode: false};
           addItem(vm.list.length,item)
         }
     }
@@ -78,7 +78,7 @@
       //to get rid of angular hash key and keys used only client side
       var list_ = []
       for(let i =0, l =vm.list.length; i < l; i++){
-        list_.push({value:vm.list[i].value});
+        list_.push({value:vm.list[i].value, done: vm.list[i].done});
       }
       saveList(list_);
     }
@@ -153,7 +153,8 @@
     }
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
-      vm.displayList[index] = {value:item.value, editMode: false};
+      //console.log(item);
+      vm.displayList[index] = {value:item.value, done: item.done, editMode: false};
     }
     function clearDisplay(){
       vm.displayList = createEmptyList(vm.pageSize);
