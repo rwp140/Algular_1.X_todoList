@@ -52,6 +52,9 @@
           addItem(vm.list.length,item)
         }
     }
+    function addList(_tab){
+
+    }
     function editItem(index, content,_done){
       vm.list[index].value = content;
       vm.list[index].done = _done;
@@ -63,9 +66,6 @@
         vm.displayList[index].line = '';
       }
       saveAction();
-    }
-    function addList(_tab){
-
     }
     function addListAction(){
       //switches content to create list
