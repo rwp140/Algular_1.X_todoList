@@ -54,6 +54,11 @@
         }
     }
     function addList(_tab){
+    function addListAction(){
+      //switches content to create list
+      vm.listCreation = !vm.listCreation;
+      vm.tabName ="";
+    }
     function createNewListAction(){//$event){
       //if($event.code === 'Enter'){
         var _name = vm.tabName;
@@ -77,9 +82,6 @@
         vm.displayList[index].line = '';
       }
       saveAction();
-    }
-    function addListAction(){
-      //switches content to create list
     }
     function editModeAction($index){
       if(vm.displayList[$index].editMode){
