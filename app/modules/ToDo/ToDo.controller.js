@@ -11,6 +11,7 @@
     vm.addItem = addItem;
     vm.addItemAction = addItemAction;
     vm.editItem = editItem;
+    vm.addList = addList;
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.saveAction = saveAction;
@@ -53,6 +54,9 @@
       vm.list[index].value = content;
       vm.displayList[index].value = content;
       saveAction();
+    }
+    function addList(_tab){
+
     }
     function editModeAction($index){
       if(vm.displayList[$index].editMode){
