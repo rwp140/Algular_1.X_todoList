@@ -8,7 +8,7 @@
   <div id = 'tabs'>
     <div>
       <!--<div id = "searchBar"></div>-->
-      <!--<div id = "addTabButton" ng-click="vm.addList()">[add List]</div>-->
+      <div id = "addTabButton" ng-click="vm.addListAction()">[add List]</div>
     </div>
     <tab  ng-repeat ="tab in vm.tabs" ng-click="vm.selectListAction($index)" >{{tab.name}}</tab>
   </div>
