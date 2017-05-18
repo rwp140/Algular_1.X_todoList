@@ -104,6 +104,7 @@
             userDataCheck(userData);//<!> replace to profile controler call
             //<!>move to load list data function
             loadListData(userData.uid);
+            loadTabData(userData.uid);
             pSvc.profileMode = "profile";
             vm.profileMode = "profile";
           }
@@ -172,7 +173,22 @@
       fbSvc.checkUserSession().then(function(user){
         pSvc.user = user;
         userDataCheck(user);
-        loadListData(user.uid);
+        loadTabData(user.uid)
+        .then(function(_tabs){
+          vm.tabs = [];
+          let keys = Object.keys(_tabs);
+          for(let i = 0, l = keys.length; i<l; i++){
+            let tab = {name:keys[i],colour:_tabs[keys[i]].colour,tags:_tabs[keys[i]].tags}
+            //console.log(tab);
+            vm.tabs.push(tab);
+          }
+          vm.indexer = 1;
+          loadListData(user.uid);
+        })
+        //.then(function(_test){
+          //console.log(_test);
+          //console.log(vm.tabs);
+        //});
         pSvc.profileMode = "profile";
         vm.profileMode = "profile";
       },function(){
@@ -181,8 +197,13 @@
       console.log();
     }
     function loadListData(_uid){
+      //console.log(vm.tabs);
+      //console.log(vm.indexer);
+      var tab = vm.tabs[vm.indexer];
+      //console.log(tab);
+      //console.log(tab.name);
       clearDisplay();
-      fbSvc.readDataOnce(_uid,"lists/",vm.tab.name+"/list")
+      fbSvc.readDataOnce(_uid,"lists/",tab.name)
       .then(function(_list){
         //console.log(vm.list);
         vm.list = _list;
@@ -204,11 +225,25 @@
         //load tab colour
         //load tab list
       //end loop repeate tell index equals tab count
-
+      //console.log("loading tabs");
+      var deferred = $q.defer();
+      let tabs;
+      //vm.tabs = [];
+      fbSvc.readDataOnce(_uid,"tabs/","")
+      .then(function(data){
+        //console.log(data);
+        tabs = data;
+        //console.log(tabs);
+        //vm.tabs = tabs;
+        deferred.resolve(tabs);
+      },function(error){
+        console.error(error.code);
+        console.error(error.meesage);
+        deferred.reject();
+      });
+      return deferred.promise;
     }
-    function saveTab(){
 
-    }
     function saveList(_list){
     //  let promise = new Promise((resolve, reject) => {
       //  if (/* some async task is all good */) {
@@ -225,22 +260,21 @@
       */
       //vm.tab.list = _list;
       var defer = $q.defer();
-      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/list",_list)
+      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tabs[vm.indexer].name,_list)
       .then(function(){
         //console.log("saved");
-        fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/tags",vm.tab.tags)
-        .then(function(){
-          //console.log("saved");
-          fbSvc.writeData(pSvc.user.uid,"lists/",vm.tab.name+"/colour",vm.tab.colour)
-          .then(function(){
-            //console.log("saved");
+          saveTab();
+      },function(rejected){
+        console.log(rejected.message);
+      });
+    }
 
-          },function(rejected){
-            console.log(rejected.message);
-          });
-        },function(rejected){
-          console.log(rejected.message);
-        });
+    function saveTab(){
+      var tab = {colour:vm.tabs[vm.indexer].colour,tags:vm.tabs[vm.indexer].tags};
+      var tabName = vm.tabs[vm.indexer].name;
+      fbSvc.writeData(pSvc.user.uid,"tabs/",tabName,tab) //need to sit down and re normalize this
+      .then(function(){
+
       },function(rejected){
         console.log(rejected.message);
       });
