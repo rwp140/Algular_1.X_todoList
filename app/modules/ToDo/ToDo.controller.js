@@ -91,6 +91,7 @@
       for(let i =0, l =vm.list.length; i < l; i++){
         list_.push({value:vm.list[i].value, done: vm.list[i].done});
       }
+      //console.log(list_);
       saveList(list_);
     }
     function selectListAction(_indexer){
@@ -199,9 +200,9 @@
             //console.log(tab);
             vm.tabs.push(tab);
           }
-          vm.indexer = 1;
+          vm.indexer = 0;
           loadListData(user.uid);
-        })
+        });
         //.then(function(_test){
           //console.log(_test);
           //console.log(vm.tabs);
@@ -213,6 +214,7 @@
       });
       console.log();
     }
+
     function loadListData(_uid){
       //console.log(vm.tabs);
       //console.log(vm.indexer);
@@ -225,10 +227,8 @@
         //console.log(vm.list);
         vm.list = _list;
         loadList();
-
-
+      },function(error){
       });
-      //</!>
     }
     function loadList(){
       for(let i=0,l=vm.list.length;i<l;i++){
@@ -276,6 +276,9 @@
        promises are native to JS since 2015, as well as angulars Q
       */
       //vm.tab.list = _list;
+      // console.log(vm.displayList);
+      // console.log(vm.list);
+      // console.log(_list);
       var defer = $q.defer();
       fbSvc.writeData(pSvc.user.uid,"lists/",vm.tabs[vm.indexer].name,_list)
       .then(function(){
