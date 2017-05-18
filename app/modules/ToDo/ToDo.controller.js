@@ -54,6 +54,8 @@
         }
     }
     function addList(_tab){
+      vm.tabs.push(_tab);
+    }
     function addListAction(){
       //switches content to create list
       vm.listCreation = !vm.listCreation;
