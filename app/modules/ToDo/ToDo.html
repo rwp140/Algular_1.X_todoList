@@ -9,8 +9,8 @@
    </profile>
 </div>
 <div id = "content" ng-if="vm.profileMode == 'profile'">
-  <div id = 'tabs' ng-repeat ="tab in vm.tabs">
-    <tab ng-click="" >{{tab.name}}</tab>
+  <div id = 'tabs'>
+    <tab  ng-repeat ="tab in vm.tabs" ng-click="" >{{tab.name}}</tab>
   </div>
   <div id = "mainBody">
     <input id ="mainInput" name="mainInput" placeholder="enter To Do Item Text Here (press enter to save)" type="text"ng-model="vm.inputData" ng-keydown="vm.addItemAction($event)"/>
