@@ -29,13 +29,13 @@
 - (optional)hovering over a empty display item should reveal a input field
 
 ### multi list interactions
-####features
-- add a series of tab items that the user can create
-- make sure clicking a tab brings the user to the attached list
-- set up each tab so it will have a tab name, colour, and list ID
-- pressing a + at the top of the tabs should prompt user to create a new tab
-- ^ main content should change to create tab page (on click)^
-- tab creation page should prompt for: name, colour, tags
+####features [note colour not implemented yet for technical/asset reasons]
+- add a series of tab items that the user can create  (done)
+- make sure clicking a tab brings the user to the attached list  (done)
+- set up each tab so it will have a tab name, colour, and tags  (done)
+- pressing a + at the top of the tabs should prompt user to create a new tab  (done)
+- ^ main content should change to create tab page (on click)^  (done)
+- tab creation page should prompt for: name, colour, tags  (done)
 - left of the add tab button should be a search bar
 - data entered in to the search bar should: reduce to tabs with partial matching name and tag values
 - tabs should be to the left of the todo list page
@@ -51,7 +51,7 @@
 - - create tab directive (done)
 - - create tab object  (done)
 - - - properties: colour, name/listID, tags[]  (done)
-- add add new tab function to controller
+- add add new tab function to controller (done)
 - add "add tab" button to html (done)
 - add search bar to todo List template
 - add search function to "to do" controller
