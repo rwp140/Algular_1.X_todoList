@@ -16,6 +16,7 @@
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.saveAction = saveAction;
+    vm.selectListAction = selectListAction;
     vm.signInAction = signInAction;
     vm.signOutAction = signOutAction;
     vm.signUpAction = signUpAction;
@@ -89,6 +90,11 @@
         list_.push({value:vm.list[i].value, done: vm.list[i].done});
       }
       saveList(list_);
+    }
+    function selectListAction(_indexer){
+      vm.indexer = _indexer;
+
+      loadListData(pSvc.user.uid);
     }
     function signInAction(){
       if(pSvc.profileMode == "signIn"){
