@@ -52,9 +52,11 @@
           addItem(vm.list.length,item)
         }
     }
-    function editItem(index, content){
+    function editItem(index, content,_done){
       vm.list[index].value = content;
+      vm.list[index].done = _done;
       vm.displayList[index].value = content;
+      vm.displayList[index].done = _done;
       saveAction();
     }
     function addList(_tab){
@@ -66,7 +68,7 @@
     function editModeAction($index){
       if(vm.displayList[$index].editMode){
         //console.log(vm.list[$index].value);
-        editItem($index,vm.displayList[$index].value);
+        editItem($index,vm.displayList[$index].value,vm.displayList[$index].done);
         //console.log(vm.list[$index].value);
       }
       vm.displayList[$index].editMode = !vm.displayList[$index].editMode;
