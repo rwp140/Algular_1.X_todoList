@@ -31,6 +31,9 @@
     //vm.logedIn = false;
     //<!> move to profile.controler
     vm.profileMode = "signIn";//<!> temp
+    vm.listCreation = false;
+    vm.tabName ="";//<!>
+    vm.tabTags = "";
     //vm.user;
     //vm.userEmail = "";//<!> add encryption
     //vm.userPassword = ""///<!> add encryption
