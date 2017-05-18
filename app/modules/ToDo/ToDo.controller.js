@@ -13,6 +13,7 @@
     vm.editItem = editItem;
     vm.addList = addList;
     vm.addListAction = addListAction;
+    vm.createNewListAction = createNewListAction;
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.saveAction = saveAction;
@@ -53,7 +54,17 @@
         }
     }
     function addList(_tab){
-
+    function createNewListAction(){//$event){
+      //if($event.code === 'Enter'){
+        var _name = vm.tabName;
+        var _tags = vm.tabTags.split(',');
+        var tab_ = {name:_name,colour:"",tags:_tags}
+        //console.log(tab_);
+        addList(tab_);
+        vm.list = [];
+        selectListAction(vm.tabs.length-1);
+        saveAction();
+      //}
     }
     function editItem(index, content,_done){
       vm.list[index].value = content;
