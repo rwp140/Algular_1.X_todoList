@@ -61,11 +61,15 @@ body{
   border: solid 1px;
   border-color: silver;
   flex-shrink: .5;
+  min-height: 778px;
+  min-width: 800px;
 }
 #mainInput{
   flex: auto;
   display: block;
   margin: 4px 2px;
+  height: 22px;
+  min-width: 700px;
 }
 .item{
   display: flex;
