@@ -21,18 +21,11 @@
 
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
 ##personal tasks and features
-###beautification tasks
-- switch todo list to cover mode if not currently logged in (done)
- - build cover template
- - - size and position cover (done)
- - - add coils image to side of cover and content
- - build directive (done)
-- add texture to cover and main content background (done)
 
 ##additional base Functionalities
-- add buttons to raise or lower an item through the list
-- add check box to each list item
+- add check box to each list item [asap]
 - checking an item should add a strike through style
+- add buttons to raise or lower an item through the list
 - (optional)hovering over a empty display item should reveal a input field
 
 ### multi list interactions
@@ -56,10 +49,12 @@
 - - - css: background colour = colour property, colour: black
 - - - use ribbon texture (done)
 - - create tab directive (done)
-- - create tab object
-- - - properties: colour, name/listID, tags[]
+- - create tab object  (done)
+- - - properties: colour, name/listID, tags[]  (done)
+- add add new tab function to controller
+- add "add tab" button to html
 - add search bar to todo List tempalte
-- add search function to to do controller
+- add search function to "to do" controller
 - - add search action function
 - - add filter by name function
 - - add filter by tag function
