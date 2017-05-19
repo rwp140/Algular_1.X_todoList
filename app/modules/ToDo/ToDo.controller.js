@@ -72,10 +72,8 @@
         var tab_ = {name:_name,colour:"",tags:_tags}
         //console.log(tab_);
         addList(tab_);
-        vm.list = [];
-        selectListAction(vm.tabs.length-1);
-        sortTabList();
-        saveAction();
+        //vm.list = [];
+        //console.log(vm.tabs);
       //}
     }
     function deleteListAction($index){
