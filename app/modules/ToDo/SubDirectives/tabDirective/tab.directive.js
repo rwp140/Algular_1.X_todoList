@@ -9,7 +9,7 @@
     return {
       restrict: 'E',
       transclude:true,
-      scope: {},
+      scope: true,
       templateUrl: 'modules/ToDo/SubDirectives/tabDirective/tab.directive.html',
       link: function(scope) {
 
