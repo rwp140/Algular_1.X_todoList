@@ -53,7 +53,7 @@
     function addItemAction($event){
         if($event.code === 'Enter'){
           var item = {value:vm.inputData, done: false, editMode: false};
-          addItem(vm.list.length,item)
+          addItem(vm.list.length,item);
         }
     }
     function addList(_tab){
