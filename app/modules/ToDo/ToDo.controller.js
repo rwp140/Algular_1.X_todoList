@@ -73,6 +73,7 @@
         addList(tab_);
         vm.list = [];
         selectListAction(vm.tabs.length-1);
+        sortTabList();
         saveAction();
       //}
     }
@@ -333,6 +334,21 @@
       },function(rejected){
         console.log(rejected.message);
       });
+    }
+
+
+    function sortTabList(){
+      if(vm.tabs.length>=2){
+        vm.tabs.sort(function(a,b){
+
+          if(a.name < b.name)//if
+            return -1;
+          if(a.name > b.name)//else
+            return 1;
+          return 0//else
+        });
+      }
+
     }
     /*====================== Actions ======================================== */
     init();
