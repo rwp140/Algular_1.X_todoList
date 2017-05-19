@@ -144,7 +144,7 @@
             userDataCheck(userData);//<!> replace to profile controler call
             //<!>move to load list data function
             loadListData(userData.uid);
-            loadTabData(userData.uid);
+            loadTabs(userData.uid);
             pSvc.profileMode = "profile";
             vm.profileMode = "profile";
           }
@@ -220,18 +220,7 @@
       fbSvc.checkUserSession().then(function(user){
         pSvc.user = user;
         userDataCheck(user);
-        loadTabData(user.uid)
-        .then(function(_tabs){
-          vm.tabs = [];
-          let keys = Object.keys(_tabs);
-          for(let i = 0, l = keys.length; i<l; i++){
-            let tab = {name:keys[i],colour:_tabs[keys[i]].colour,tags:_tabs[keys[i]].tags}
-            //console.log(tab);
-            vm.tabs.push(tab);
-          }
-          vm.indexer = 0;
-          loadListData(user.uid);
-        });
+        loadTabs(user.uid);
         //.then(function(_test){
           //console.log(_test);
           //console.log(vm.tabs);
@@ -266,7 +255,21 @@
         addItemToDisplayList(i,vm.list[i]);
       }
     }
-
+    function loadTabs(_uid){
+      loadTabData(_uid)
+      .then(function(_tabs){
+        vm.tabs = [];
+        let keys = Object.keys(_tabs);
+        for(let i = 0, l = keys.length; i<l; i++){
+          let tab = {name:keys[i],colour:_tabs[keys[i]].colour,tags:_tabs[keys[i]].tags}
+          //console.log(tab);
+          vm.tabs.push(tab);
+        }
+        vm.indexer = 0;
+        sortTabList();
+        loadListData(_uid);
+      });
+    }
     function loadTabData(_uid){
       //get number of tabs?
       //start loop [for]
