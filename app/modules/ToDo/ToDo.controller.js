@@ -284,16 +284,22 @@
     function loadTabs(_uid){
       loadTabData(_uid)
       .then(function(_tabs){
-        vm.tabs = [];
-        let keys = Object.keys(_tabs);
-        for(let i = 0, l = keys.length; i<l; i++){
-          let tab = {name:keys[i],colour:_tabs[keys[i]].colour,tags:_tabs[keys[i]].tags}
-          //console.log(tab);
-          vm.tabs.push(tab);
+        if(_tabs == null){
+          vm.tabs = [];
+          vm.list = [];
+        } else {
+          vm.tabs = _tabs;
+          loadListData(_uid);
         }
-        vm.indexer = 0;
-        sortTabList();
-        loadListData(_uid);
+
+        // let keys = Object.keys(_tabs);
+        // for(let i = 0, l = keys.length; i<l; i++){
+        //   let tab = {name:keys[i],colour:_tabs[keys[i]].colour,tags:_tabs[keys[i]].tags}
+        //   //console.log(tab);
+        //   vm.tabs.push(tab);
+        // }
+        //vm.indexer = 0;
+        //sortTabList();
       });
     }
     function loadTabData(_uid){
