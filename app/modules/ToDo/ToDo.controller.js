@@ -77,6 +77,9 @@
         saveAction();
       //}
     }
+    function deleteListAction($index){
+
+    }
     function editItem(index, content,_done){
       vm.list[index].value = content;
       vm.list[index].done = _done;
