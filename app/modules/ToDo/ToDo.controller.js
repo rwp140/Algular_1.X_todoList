@@ -59,6 +59,16 @@
     }
     function addList(_tab){
       vm.tabs.push(_tab);
+      sortTabList();
+      //console.log(vm.tabs);
+      var index = 0;
+      for(let i=0,l=vm.tabs.length; i<l; i++){
+        if(vm.tabs[i].name == _tab.name){
+          index = i;
+        }
+      }
+      saveTab();
+      selectListAction(index);
     }
     function addListAction(){
       //switches content to create list
