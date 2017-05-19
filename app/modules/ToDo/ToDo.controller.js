@@ -14,6 +14,7 @@
     vm.addList = addList;
     vm.addListAction = addListAction;
     vm.createNewListAction = createNewListAction;
+    vm.deleteListAction = deleteListAction;
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.saveAction = saveAction;
@@ -78,7 +79,20 @@
       //}
     }
     function deleteListAction($index){
+      //vm.tabs.splice($index,1);
+      //console.log(vm.tabs[$index].name);
+      let path ="users/"+pSvc.user.uid+"/lists/"+vm.tabs[$index].name;
+      //console.log(path);
+      fbSvc.removeDataPoint(path);
+      //path = "users/"+pSvc.user.uid+"/tabs/"+$index;//vm.tabs[$index].name;
+      //console.log(path);
+      vm.tabs.splice($index,1);
+      //fbSvc.removeDataPoint(path);
 
+      //vm.indexer = 0;
+      saveTab();
+      loadTabs(pSvc.user.uid);
+      selectListAction(0);
     }
     function editItem(index, content,_done){
       vm.list[index].value = content;
