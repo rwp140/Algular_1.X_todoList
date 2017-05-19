@@ -32,6 +32,9 @@ body{
   text-align: right;
 }
 .tab h2{
+  display:inline-block;
+  text-align: right;
+}
   text-align: right;
 }
 #content{
