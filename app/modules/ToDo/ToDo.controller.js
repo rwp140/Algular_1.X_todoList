@@ -134,6 +134,8 @@
       saveAction();
     }
     function saveAction(){
+      //console.log("ping;");
+      //saveTab();
       //set up save list
       //to get rid of angular hash key and keys used only client side
       var list_ = []
@@ -146,6 +148,7 @@
     function selectListAction(_indexer){
       vm.listCreation = false;
       vm.indexer = _indexer;
+      //console.log(vm.tabs[_indexer].name);
       loadListData(pSvc.user.uid);
     }
     function signInAction(){
@@ -169,8 +172,8 @@
           }else{
             userDataCheck(userData);//<!> replace to profile controler call
             //<!>move to load list data function
-            loadListData(userData.uid);
             loadTabs(userData.uid);
+            //loadListData(userData.uid);
             pSvc.profileMode = "profile";
             vm.profileMode = "profile";
           }
@@ -214,7 +217,7 @@
           console.error("display name could not be updated please contact support");
         });
       }else{
-        console.log(pSvc.user.displayName);
+        //console.log(pSvc.user.displayName);
       }
     }
     /*====================== Private Methods ================================ */
@@ -240,6 +243,7 @@
       return list_
     }
     function init(){
+      vm.indexer = 0;
       vm.displayList = createEmptyList(vm.pageSize);
       vm.list = [];
       fbSvc.initializeFireBase();
@@ -256,7 +260,7 @@
       },function(){
 
       });
-      console.log();
+      //console.log();
     }
 
     function loadListData(_uid){
@@ -280,6 +284,7 @@
       for(let i=0,l=vm.list.length;i<l;i++){
         addItemToDisplayList(i,vm.list[i]);
       }
+      sortTabList();
     }
     function loadTabs(_uid){
       loadTabData(_uid)
@@ -350,7 +355,6 @@
       fbSvc.writeData(pSvc.user.uid,"lists/",vm.tabs[vm.indexer].name,_list)
       .then(function(){
         //console.log("saved");
-          saveTab();
       },function(rejected){
         console.log(rejected.message);
       });
