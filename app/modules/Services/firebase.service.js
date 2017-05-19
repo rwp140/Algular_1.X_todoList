@@ -78,10 +78,10 @@
       return deferred.promise;
     }
 
-    function removeDataPoint(path){
+    function removeDataPoint(_path){
       var deferred = $q.defer();
 
-      var dataPoint = database.ref(path);
+      var dataPoint = database.ref(_path);
       dataPoint.remove()
         .then(function(){
           deferred.resolve()
@@ -91,6 +91,7 @@
 
         return deferred.promise;
     }
+
     function readKeyOnce(userID,_path){
       var deferred = $q.defer();
       //var uid = auth.currentUser.uid;
