@@ -10,7 +10,7 @@
       <!--<div id = "searchBar"></div>-->
       <div id = "addTabButton" ng-click="vm.addListAction()">[add List]</div>
     </div>
-    <tab  ng-repeat ="tab in vm.tabs" ng-click="vm.selectListAction($index)" >{{tab.name}}</tab>
+    <tab  ng-repeat ="tab in vm.tabs">{{tab.name}}</tab>
   </div>
   <div id = "mainBody" ng-if="!vm.listCreation">
     <input id ="mainInput" name="mainInput" placeholder="enter To Do Item Text Here (press enter to save)" type="text"ng-model="vm.inputData" ng-keydown="vm.addItemAction($event)"/>
