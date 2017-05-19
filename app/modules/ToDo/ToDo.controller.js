@@ -357,9 +357,15 @@
     }
 
     function saveTab(){
-      var tab = {colour:vm.tabs[vm.indexer].colour,tags:vm.tabs[vm.indexer].tags};
-      var tabName = vm.tabs[vm.indexer].name;
-      fbSvc.writeData(pSvc.user.uid,"tabs/",tabName,tab) //need to sit down and re normalize this
+      //var tab_ = {colour:vm.tabs[vm.indexer].colour,tags:vm.tabs[vm.indexer].tags};
+      //var tabName_ = vm.tabs[vm.indexer].name;
+      var tabs_ = [];
+      for(let i =0, l=vm.tabs.length; i<l; i++){
+        let tab_ = {name:vm.tabs[i].name,colour:vm.tabs[i].colour,tags:vm.tabs[i].tags};
+        tabs_.push(tab_);
+      }
+      console.log(vm.tabs);
+      fbSvc.writeData(pSvc.user.uid,"tabs/","",tabs_) //need to sit down and re normalize this
       .then(function(){
 
       },function(rejected){
