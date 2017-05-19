@@ -14,6 +14,7 @@
     svc.readChildKeysOnce = readChildKeysOnce;
     svc.readKeyOnce = readKeyOnce;
     svc.readDataOnce = readDataOnce;
+    svc.removeDataPoint = removeDataPoint;
     svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
     svc.signUpUser = signUpUser;
@@ -75,6 +76,20 @@
         deferred.reject(error);
       });
       return deferred.promise;
+    }
+
+    function removeDataPoint(path){
+      var deferred = $q.defer();
+
+      var dataPoint = database.ref(path);
+      dataPoint.remove()
+        .then(function(){
+          deferred.resolve()
+        },function(error){
+          deferred.reject()
+        });
+
+        return deferred.promise;
     }
     function readKeyOnce(userID,_path){
       var deferred = $q.defer();
