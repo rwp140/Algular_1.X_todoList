@@ -29,6 +29,7 @@ body{
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 0px 20px;
+  text-align: right;
 }
 .tab h2{
   text-align: right;
