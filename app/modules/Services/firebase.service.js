@@ -12,10 +12,11 @@
     svc.emailConfirm = emailConfirm;
     svc.initializeFireBase = initializeFireBase;
     svc.readChildKeysOnce = readChildKeysOnce;
-    svc.readKeyOnce = readKeyOnce;
     svc.readDataOn = readDataOn;
     svc.readDataOnce = readDataOnce;
+    svc.readDataOff = readDataOff;
     svc.removeDataPoint = removeDataPoint;
+    svc.readKeyOnce = readKeyOnce;
     svc.signInUser = signInUser;
     svc.signOutUser = signOutUser;
     svc.signUpUser = signUpUser;
@@ -94,8 +95,10 @@
         //
         // return defered.promise;
     }
+    function readDataOff(_path){
+      var dataPoint = database.ref(_path);
+      dataPoint.off()//'value',callback);
     }
-
     function removeDataPoint(_path){
       var deferred = $q.defer();
 
