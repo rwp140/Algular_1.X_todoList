@@ -241,7 +241,9 @@
       vm.displayList[index] = {value:item.value, done: item.done, editMode: false, line:line_};
     }
     function clearDisplay(){
+      vm.displayList = [];
       vm.displayList = createEmptyList(vm.pageSize);
+      vm.inputData = "";
     }
     function createEmptyList(_size){
       //create empty list at variable size!
