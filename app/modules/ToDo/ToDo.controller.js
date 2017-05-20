@@ -380,7 +380,7 @@
       // console.log(vm.list);
       // console.log(_list);
       var defer = $q.defer();
-      fbSvc.writeData(pSvc.user.uid,"lists/",vm.tabs[vm.indexer].name,_list)
+      fbSvc.writeData("users/"+pSvc.user.uid+"/lists/"+vm.tabs[vm.indexer].name,_list)
       .then(function(){
         //console.log("saved");
         defer.resolve();
@@ -402,7 +402,7 @@
         tabs_.push(tab_);
       }
       //console.log(vm.tabs);
-      fbSvc.writeData(pSvc.user.uid,"tabs/","",tabs_) //need to sit down and re normalize this
+      fbSvc.writeData(pSvc.user.uid+"/tabs/",tabs_) //need to sit down and re normalize this
       .then(function(){
         defer.resolve();
       },function(rejected){
