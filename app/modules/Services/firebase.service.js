@@ -77,6 +77,22 @@
       });
       return deferred.promise;
     }
+    function readDataOn(_path){
+        var deferred = $q.defer();
+
+        var data_;
+        var dataPoint = database.ref(path);
+        dataPoint.on('value')
+        .then(function(snapshot){
+          data snapshot.val();
+
+          deferred.resolve();
+        }, function(error){
+          deferred.reject();
+        });
+
+        return defered.promise;
+    }
 
     function removeDataPoint(_path){
       var deferred = $q.defer();
