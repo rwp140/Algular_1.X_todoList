@@ -41,6 +41,7 @@
     //</!> move to profile.controler
     vm.pageSize = 25;
     /*====================== private Variables ============================== */
+    var oldTabName;
     /*====================== Services ======================================= */
     var fbSvc = firebaseService;
     var pSvc = profileService;
@@ -102,7 +103,7 @@
 
         //vm.indexer = 0;
         saveTab();
-        loadTabs(pSvc.user.uid);
+        //loadTabs(pSvc.user.uid);
         selectListAction(0);
         defer.resolve();
       },function(error){
@@ -259,6 +260,7 @@
         pSvc.user = user;
         userDataCheck(user);
         loadTabs(user.uid);
+        //loadListData(user.uid);
         //.then(function(_test){
           //console.log(_test);
           //console.log(vm.tabs);
@@ -277,7 +279,7 @@
       var tab = vm.tabs[vm.indexer];
       //console.log(tab);
       //console.log(tab.name);
-      clearDisplay();
+      //clearDisplay();
       fbSvc.readDataOnce(_uid,"lists/",tab.name)
       .then(function(_list){
         //console.log(vm.list);
@@ -286,24 +288,25 @@
       },function(error){
       });
     }
-
     function loadList(){
       if(vm.list == null) vm.list = [];
+      clearDisplay();
       for(let i=0,l=vm.list.length;i<l;i++){
         addItemToDisplayList(i,vm.list[i]);
       }
       sortTabList();
     }
     function loadTabs(_uid){
-      loadTabData(_uid)
-      .then(function(_tabs){
-        if(_tabs == null){
-          vm.tabs = [];
-          vm.list = [];
-        } else {
-          vm.tabs = _tabs;
-          loadListData(_uid);
-        }
+      //loadTabData(_uid)
+      fbSvc.readDataOn("users/"+_uid+"/tabs/",loadTabData);
+      // .then(function(_tabs){
+      //   if(_tabs == null){
+      //     vm.tabs = [];
+      //     vm.list = [];
+      //   } else {
+      //     vm.tabs = _tabs;
+      //     loadListData(_uid);
+      //   }
 
         // let keys = Object.keys(_tabs);
         // for(let i = 0, l = keys.length; i<l; i++){
@@ -313,32 +316,33 @@
         // }
         //vm.indexer = 0;
         //sortTabList();
-      });
+      //});
     }
-    function loadTabData(_uid){
-      //get number of tabs?
-      //start loop [for]
-        //load tab name
-        //load tab colour
-        //load tab list
-      //end loop repeate tell index equals tab count
+    function loadTabData(_tabs){
+      if(_tabs == null ){
+        vm.tabs = [];
+        vm.list = [];
+      } else {
+        vm.tabs = _tabs;
+        loadListData(pSvc.user.uid);
+      }
+
       //console.log("loading tabs");
-      var deferred = $q.defer();
-      let tabs;
-      //vm.tabs = [];
-      fbSvc.readDataOnce(_uid,"tabs/","")
-      .then(function(data){
-        //console.log(data);
-        tabs = data;
-        //console.log(tabs);
-        //vm.tabs = tabs;
-        deferred.resolve(tabs);
-      },function(error){
-        console.error(error.code);
-        console.error(error.meesage);
-        deferred.reject();
-      });
-      return deferred.promise;
+      // var deferred = $q.defer();
+      // let tabs;
+      // //vm.tabs = [];
+      // .then(function(data){
+      //   //console.log(data);
+      //   tabs = data;
+      //   //console.log(tabs);
+      //   //vm.tabs = tabs;
+      //   deferred.resolve(tabs);
+      // },function(error){
+      //   console.error(error.code);
+      //   console.error(error.meesage);
+      //   deferred.reject();
+      // });
+      // return deferred.promise;
     }
 
     function saveList(_list){
@@ -390,7 +394,7 @@
         defer.reject();
       });
 
-      return defer.promise();
+      return defer.promise;
     }
 
 
