@@ -232,6 +232,7 @@
     /*====================== Private Methods ================================ */
     function addItemToDisplayList(index, item){//clunky way of getting around my lack of html finise ;)
       //console.log(item);
+      //console.log(item);
       var line_;
       if(item.done){
         line_ = 'line-through';
@@ -278,10 +279,21 @@
     function loadListData(_uid){
       //console.log(vm.tabs);
       //console.log(vm.indexer);
+      // if(oldTabName != "" || oldTabName == undefined || oldTabName == null)
+      //   fbSvc.readDataOff('users/'+_uid+"/lists/"+oldTabName);
       var tab = vm.tabs[vm.indexer];
+      //oldTabName = tab.name;
+      //console.log(vm.tabs);
+      //console.log(oldTabName);
       //console.log(tab);
       //console.log(tab.name);
       //clearDisplay();
+      // fbSvc.readDataOn('users/'+_uid+"/lists/"+tab.name,
+      //   function(_list){
+      //     clearDisplay();
+      //     vm.list = _list;
+      //     loadList();
+      // });
       fbSvc.readDataOnce('users/'+_uid+"/lists/"+tab.name)
       .then(function(_list){
         //console.log(vm.list);
@@ -296,6 +308,8 @@
       for(let i=0,l=vm.list.length;i<l;i++){
         addItemToDisplayList(i,vm.list[i]);
       }
+      //console.log(vm.displayList);
+      //console.log("loaded");
       sortTabList();
     }
     function loadTabs(_uid){
@@ -387,7 +401,7 @@
         let tab_ = {name:vm.tabs[i].name,colour:vm.tabs[i].colour,tags:vm.tabs[i].tags};
         tabs_.push(tab_);
       }
-      console.log(vm.tabs);
+      //console.log(vm.tabs);
       fbSvc.writeData(pSvc.user.uid,"tabs/","",tabs_) //need to sit down and re normalize this
       .then(function(){
         defer.resolve();
