@@ -89,18 +89,26 @@
     function deleteListAction($index){
       //vm.tabs.splice($index,1);
       //console.log(vm.tabs[$index].name);
+
+      var defer = $q.defer();
       let path ="users/"+pSvc.user.uid+"/lists/"+vm.tabs[$index].name;
       //console.log(path);
-      fbSvc.removeDataPoint(path);
-      //path = "users/"+pSvc.user.uid+"/tabs/"+$index;//vm.tabs[$index].name;
-      //console.log(path);
-      vm.tabs.splice($index,1);
-      //fbSvc.removeDataPoint(path);
+      fbSvc.removeDataPoint(path)
+      .then(function(){
+        //path = "users/"+pSvc.user.uid+"/tabs/"+$index;//vm.tabs[$index].name;
+        //console.log(path);
+        vm.tabs.splice($index,1);
+        //fbSvc.removeDataPoint(path);
 
-      //vm.indexer = 0;
-      saveTab();
-      loadTabs(pSvc.user.uid);
-      selectListAction(0);
+        //vm.indexer = 0;
+        saveTab();
+        loadTabs(pSvc.user.uid);
+        selectListAction(0);
+        defer.resolve();
+      },function(error){
+        defer.reject();
+      });
+      return defer.promise();
     }
     function editItem(index, content,_done){
       vm.list[index].value = content;
@@ -355,14 +363,19 @@
       fbSvc.writeData(pSvc.user.uid,"lists/",vm.tabs[vm.indexer].name,_list)
       .then(function(){
         //console.log("saved");
+        defer.resolve();
       },function(rejected){
         console.log(rejected.message);
+        defer.reject();
       });
+
+      return defer.promise();
     }
 
     function saveTab(){
       //var tab_ = {colour:vm.tabs[vm.indexer].colour,tags:vm.tabs[vm.indexer].tags};
       //var tabName_ = vm.tabs[vm.indexer].name;
+      var defer = $q.defer();
       var tabs_ = [];
       for(let i =0, l=vm.tabs.length; i<l; i++){
         let tab_ = {name:vm.tabs[i].name,colour:vm.tabs[i].colour,tags:vm.tabs[i].tags};
@@ -371,10 +384,13 @@
       console.log(vm.tabs);
       fbSvc.writeData(pSvc.user.uid,"tabs/","",tabs_) //need to sit down and re normalize this
       .then(function(){
-
+        defer.resolve();
       },function(rejected){
         console.log(rejected.message);
+        defer.reject();
       });
+
+      return defer.promise();
     }
 
 
