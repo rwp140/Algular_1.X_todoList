@@ -41,19 +41,7 @@
 - tabs should be to the left of the todo list page
 - should be able to flip through pages for lists with more then [PageSize]
 ####tasks
-- tabs [tabs should lead to a connected list]
-- - add ribbon textures (done)
-- - create tab template (done)
-- - - [name], (done)
-- - - onclick go to list(listID),
-- - - css: background colour = colour property, colour: black
-- - - use ribbon texture (done)
-- - create tab directive (done)
-- - create tab object  (done)
-- - - properties: colour, name/listID, tags[]  (done)
-- add tab sort function which by default should sort by name alphabetically
-- add add new tab function to controller (done)
-- add "add tab" button to html (done)
+- add tab sort function which by default should sort by name alphabetically (done)
 - add search bar to todo List template
 - add search function to "to do" controller
 - - add search action function
