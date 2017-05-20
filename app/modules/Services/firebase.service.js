@@ -204,12 +204,12 @@
 
       return deferred.promise;
     }
-    function writeData(userID,basePath,dataID,data){
+    function writeData(_Path,data){
       var deferred = $q.defer();
-      var path = 'users/'+userID+"/"+basePath+dataID;
+      //var path = 'users/'+userID+"/"+basePath+dataID;
       //console.log(path);
       //console.log(data);
-      var dataPoint = database.ref(path);
+      var dataPoint = database.ref(_Path);
       dataPoint.set(data).then(function(){
         deferred.resolve();
       }).catch(function(error){
