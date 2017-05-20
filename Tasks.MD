@@ -75,6 +75,6 @@ add "pages" functionality to lists
 
 
 ###FIX
-write and read data functions should only receive one arg where possible
-set up on loading, and re set up loading to only use one load call per loadable item (tabs, lists)
-make sure all read right operations are q/async appropriate at all levels
+-write and read data functions should only receive one arg where possible
+-set up "on()" loading, and re set up loading to only use one load call per loadable item (tabs(done), lists(issue - needs research, works as is currently))
+-make sure all read right operations are q/async appropriate at all levels (done)
