@@ -280,7 +280,7 @@
       //console.log(tab);
       //console.log(tab.name);
       //clearDisplay();
-      fbSvc.readDataOnce(_uid,"lists/",tab.name)
+      fbSvc.readDataOnce('users/'+_uid+"/lists/"+tab.name)
       .then(function(_list){
         //console.log(vm.list);
         vm.list = _list;
