@@ -13,6 +13,7 @@
     svc.initializeFireBase = initializeFireBase;
     svc.readChildKeysOnce = readChildKeysOnce;
     svc.readKeyOnce = readKeyOnce;
+    svc.readDataOn = readDataOn;
     svc.readDataOnce = readDataOnce;
     svc.removeDataPoint = removeDataPoint;
     svc.signInUser = signInUser;
@@ -77,21 +78,22 @@
       });
       return deferred.promise;
     }
-    function readDataOn(_path){
-        var deferred = $q.defer();
-
-        var data_;
-        var dataPoint = database.ref(path);
-        dataPoint.on('value')
-        .then(function(snapshot){
-          data snapshot.val();
-
-          deferred.resolve();
-        }, function(error){
-          deferred.reject();
+    function readDataOn(_path, callback){
+        //var deferred = $q.defer();
+        var dataPoint = database.ref(_path);
+        dataPoint.on('value',function(snapshot){
+          callback(snapshot.val());
         });
-
-        return defered.promise;
+        // .then(function(snapshot){
+        //   data = snapshot.val();
+        //
+        //   deferred.resolve();
+        // }, function(error){
+        //   deferred.reject();
+        // });
+        //
+        // return defered.promise;
+    }
     }
 
     function removeDataPoint(_path){
