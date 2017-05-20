@@ -27,7 +27,7 @@
     vm.displayList = [{value:" "},{value:" "}];
     vm.inputData = "";
     vm.list = [{value:" ",done:false},{value:" ",done:false}];
-    vm.tabs = [{name:"testList",colour:"",tags:["test","tasks"]}];
+    vm.tabs = null;//[{name:"testList",colour:"",tags:["test","tasks"]}];
     vm.indexer = 0;
     //vm.logedIn = false;
     //<!> move to profile.controler
