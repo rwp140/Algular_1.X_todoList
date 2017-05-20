@@ -63,12 +63,12 @@
        database = fbApp.database();
        auth = fbApp.auth();
     }
-    function readDataOnce(userID,path,dataID){
+    function readDataOnce(_path){
       var deferred = $q.defer();
       //var uid = auth.currentUser.uid;
-      var path = 'users/'+userID+"/"+path+dataID;
+      //var path = 'users/'+userID+"/"+path+dataID;
       var data;
-      var dataPoint = database.ref(path);
+      var dataPoint = database.ref(_path);
       dataPoint.once('value')
       .then(function(snapshot){
         data = snapshot.val();
