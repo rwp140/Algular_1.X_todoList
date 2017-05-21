@@ -5,7 +5,7 @@
 <div id = "content" ng-if="vm.profileMode == 'profile'">
   <div id = 'tabs'>
     <div>
-      <!--<div id = "searchBar"></div>-->
+      <input type="text" placeholder="search" ng-model="vm.search"  ng-keydown="vm.searchListsAction()"id = "searchBar"/>
       <div id = "addTabButton" ng-click="vm.addListAction()">[add List]</div>
     </div>
     <tab  ng-repeat ="tab in vm.tabs">{{tab.name}}</tab>
