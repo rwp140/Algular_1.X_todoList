@@ -34,6 +34,7 @@
     //<!> move to profile.controler
     vm.profileMode = "signIn";//<!> temp
     vm.listCreation = false;
+    vm.search = "";
     vm.tabName ="";//<!>
     vm.tabTags = "";
     //vm.user;
