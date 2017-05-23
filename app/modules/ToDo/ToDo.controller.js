@@ -445,7 +445,7 @@
         tabs_.push(tab_);
       }
       //console.log(vm.tabs);
-      fbSvc.writeData(pSvc.user.uid+"/tabs/",tabs_) //need to sit down and re normalize this
+      fbSvc.writeData("users/"+pSvc.user.uid+"/tabs/",tabs_) //need to sit down and re normalize this
       .then(function(){
         defer.resolve();
       },function(rejected){
