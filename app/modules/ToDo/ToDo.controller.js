@@ -277,6 +277,15 @@
       }
       return list_
     }
+    function filterByName(){ //<!>currently only does full matchs
+      var nums_ = [];
+      for(let i =0, l= vm.tabs.length; i<l;i++){
+        if(vm.tabs[i].name == vm.search){
+          nums_.push(i);
+        }
+      }
+      return nums_;
+    }
     function init(){
       vm.indexer = 0;
       vm.displayList = createEmptyList(vm.pageSize);
