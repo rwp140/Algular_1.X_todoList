@@ -18,6 +18,7 @@
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.saveAction = saveAction;
+    vm.searchListsAction = searchListsAction;
     vm.selectListAction = selectListAction;
     vm.signInAction = signInAction;
     vm.signOutAction = signOutAction;
@@ -153,6 +154,28 @@
       }
       //console.log(list_);
       saveList(list_);
+    }
+    function searchListsAction($event){
+      if($event.code === 'Enter' && vm.search != ""){
+        for(let i = 0, l = vm.tabs.length; i<l; i++){
+          let tab = vm.tabs[i].invisible = true;
+        }
+        var filterdByName = filterByName();
+        var filterdByTags = filterByTags();
+        //console.log(filterdByName);
+        console.log(filterdByTags);
+        console.log(vm.tabs);
+        for(let i =0, l = filterdByName.length; i<l; i++){
+            vm.tabs[filterdByName[i]].invisible = false;
+        }
+        for(let i =0, l = filterdByTags.length; i<l; i++){
+            vm.tabs[filterdByTags[i]].invisible = false;
+        }
+      } else if($event.code === 'Enter' && vm.search == ""){
+        for(let i = 0, l = vm.tabs.length; i<l; i++){
+          let tab = vm.tabs[i].invisible = false;
+        }
+      }
     }
     function selectListAction(_indexer){
       vm.listCreation = false;
