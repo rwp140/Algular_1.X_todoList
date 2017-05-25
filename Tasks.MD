@@ -20,19 +20,19 @@
 12. Upload all your code to github. =done=
 
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
-##personal tasks and features (bonus)
+## personal tasks and features (bonus)
 
-###additional base Functionalities
+### additional base Functionalities
 - add buttons to raise or lower an item through the list
 - or set up click and drag to order items around
 - (optional)double clicking over a empty display item should reveal a input field
 
 ### multi list interactions
-####features [note colour not implemented yet for technical/asset reasons]
+#### features [note colour not implemented yet for technical/asset reasons]
 - data entered in to the search bar should: reduce to tabs with partial matching name and tag values
 - tabs should be to the left of the todo list page
 - should be able to flip through pages for lists with more then [PageSize]
-####tasks
+#### tasks
 - - - [action] get filtered list of matching and partially matching values
 - add "pages" functionality to lists
 - - add left and right chevrons "<",">" to bottom of list to change through pages
@@ -40,7 +40,7 @@
 - - on click ">":pageIndex+1
 - - on click "<":(pageIndex>0) pageIndex-1
 
-###beautify, and extend user log in
+### beautify, and extend user log in
 - change cover to also be a log in page
 - clicking create new user should open up to a user creation page
   - user creation should allow user to connect with facebook, G+ or use an email or password
@@ -51,8 +51,8 @@
 - re enable email log in, add encryption [if missing]
 
 
-###FIX non detrimental bugs
+### FIX non detrimental bugs
 -set up "on()" loading, and re set up loading to only use one load call per loadable item (tabs(done), lists(issue - needs research, works as is currently))
 
-###guide
+### guide
 -set up default list called guide, which acts an exemplar, for new users
