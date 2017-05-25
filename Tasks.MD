@@ -22,37 +22,18 @@
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
 ##personal tasks and features (bonus)
 
-##additional base Functionalities
-- add check box to each list item (done)
-- checking an item should add a strike through style (done)
+###additional base Functionalities
 - add buttons to raise or lower an item through the list
 - or set up click and drag to order items around
 - (optional)double clicking over a empty display item should reveal a input field
 
 ### multi list interactions
 ####features [note colour not implemented yet for technical/asset reasons]
-- add a series of tab items that the user can create  (done)
-- make sure clicking a tab brings the user to the attached list  (done)
-- set up each tab so it will have a tab name, colour, and tags  (done)
-- pressing a + at the top of the tabs should prompt user to create a new tab  (done)
-- ^ main content should change to create tab page (on click)^  (done)
-- tab creation page should prompt for: name, colour, tags  (done)
-- left of the add tab button should be a search bar (done)
 - data entered in to the search bar should: reduce to tabs with partial matching name and tag values
 - tabs should be to the left of the todo list page
 - should be able to flip through pages for lists with more then [PageSize]
 ####tasks
-- add tab sort function which by default should sort by name alphabetically (done)
-- add search bar to todo List template  (done)
-- add relative functions to "to do" controller  (done)
-- - add search action function (trigger on key down)  (done)
-- - - [action] disable all tabs in template, that do not match search value (done)
 - - - [action] get filtered list of matching and partially matching values
-- - - [action] mark all items not in list as invisible  (done)
-- - - [action] mark all items in filtered to be visible  (done)
-- - - [action] if search value is empty or " " remove mark value from list items  (done)
-- - add filter by name function (done)
-- - add filter by tag function (done)
 - add "pages" functionality to lists
 - - add left and right chevrons "<",">" to bottom of list to change through pages
 - - display items i - i+"24"[pageSize-1] where i is "pageIndex" of list passed to display list
