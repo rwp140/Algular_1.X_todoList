@@ -10,11 +10,11 @@
     /*====================== Delegation Variables =========================== */
     vm.addItem = addItem;
     vm.addItemAction = addItemAction;
-    vm.editItem = editItem;
     vm.addList = addList;
     vm.addListAction = addListAction;
     vm.createNewListAction = createNewListAction;
     vm.deleteListAction = deleteListAction;
+    vm.editItem = editItem;
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.saveAction = saveAction;
