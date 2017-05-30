@@ -6,7 +6,7 @@
 
 1. Use the latest in AngularJs 1.x =done=
 2. Have an input field to input the todo item. (done)
-3. Once (2) has been input, the todo item must be automatically be reflected on the view itself. (done)
+3. Once (2) has been input, the todo item must bed automatically be reflected on the view itself. (done)
 4. On refresh of the page, the todo items that was input previously MUST still be present. (done)
 5. a) Able to remove a todo item (done)
    b) as per (4), once a page refresh is done, the item must also be removed (done)
@@ -25,15 +25,14 @@
 ### multi list interactions
 #### features [note colour not implemented yet for technical/asset reasons]
 - data entered in to the search bar should: reduce to tabs with partial matching name and tag values
-- tabs should be to the left of the todo list page
 - should be able to flip through pages for lists with more then [PageSize]
 #### tasks
-- updtae filter [action]s to allow for partiall matching values
-- add "pages" functionality to lists
+- update filter [action]s to allow for partial matching values
+- add "pages" functionality to lists (done)
 - - add left and right chevrons "<",">" to bottom of list to change through pages
-- - display items i - i+"24"[pageSize-1] where i is "pageIndex" of list passed to display list
-- - on click ">":pageIndex+1
-- - on click "<":(pageIndex>0) pageIndex-1
+- - display items i - i+"24"[pageSize-1] where i is "pageIndex" of list passed to display list (done)
+- - on click ">":pageIndex+1 (done)
+- - on click "<":(pageIndex>0) pageIndex-1 (done)
 
 ### additional base Functionalities
 - add buttons to raise or lower an item through the list
@@ -54,4 +53,4 @@
 -set up default list called guide, which acts an exemplar, created by default for new users
 
 ### FIX non detrimental bugs
--set up "on()" loading, for lists(issue - needs research, conflicts with current angular, works as is currently)(assume on hold indefinatly) 
+-set up "on()" loading, for lists(issue - needs research, conflicts with current angular, works as is currently)(assume on hold indefinatly)
