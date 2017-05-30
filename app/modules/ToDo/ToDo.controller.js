@@ -26,22 +26,22 @@
     vm.removeItem = removeItem;
     /*====================== public Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
-    vm.inputData = "";
-    vm.list = [{value:" ",done:false},{value:" ",done:false}];
-    vm.tabs = null;//[{name:"testList",colour:"",tags:["test","tasks"]}];
     vm.indexer = 0;
+    vm.inputData = "";
     //vm.logedIn = false;
     //<!> move to profile.controler
-    vm.profileMode = "signIn";//<!> temp
     vm.listCreation = false;
+    vm.list = [{value:" ",done:false},{value:" ",done:false}];
+    vm.pageSize = 25;
+    vm.profileMode = "signIn";//<!> temp
     vm.search = "";
+    vm.tabs = null;//[{name:"testList",colour:"",tags:["test","tasks"]}];
     vm.tabName ="";//<!>
     vm.tabTags = "";
     //vm.user;
     //vm.userEmail = "";//<!> add encryption
     //vm.userPassword = ""///<!> add encryption
     //</!> move to profile.controler
-    vm.pageSize = 25;
     /*====================== private Variables ============================== */
     var oldTabName;
     /*====================== Services ======================================= */
