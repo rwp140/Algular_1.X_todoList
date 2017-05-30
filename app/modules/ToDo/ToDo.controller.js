@@ -17,6 +17,7 @@
     vm.editItem = editItem;
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
+    vm.flipPage = flipPage;
     vm.saveAction = saveAction;
     vm.searchListsAction = searchListsAction;
     vm.selectListAction = selectListAction;
@@ -32,6 +33,7 @@
     //<!> move to profile.controler
     vm.listCreation = false;
     vm.list = [{value:" ",done:false},{value:" ",done:false}];
+    vm.pageIndex = 0;
     vm.pageSize = 25;
     vm.profileMode = "signIn";//<!> temp
     vm.search = "";
@@ -136,6 +138,12 @@
     function exitEditMode($event,$index){
       if($event.code === 'Enter'){
         editModeAction($index);
+      }
+    }
+    function flipPage(value){
+      if(vm.pageIndex+value>=0 && vm.pageIndex+value<vm.list.length){
+        vm.pageIndex+=value;
+        loadList();
       }
     }
     function removeItem(index){
