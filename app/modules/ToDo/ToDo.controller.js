@@ -141,7 +141,7 @@
       }
     }
     function flipPage(value){
-      if(vm.pageIndex+value>=0 && vm.pageIndex+value<vm.list.length){
+      if(vm.pageIndex+value>=0 && ((vm.pageIndex+value)*vm.pageSize)<vm.list.length){
         vm.pageIndex+=value;
         loadList();
       }
