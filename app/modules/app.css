@@ -40,6 +40,11 @@ body{
   height: 22px;
   min-width: 700px;
 }
+#pageTurner{
+  display: flex;
+  align-content: stretch;
+  flex-direction: column;
+}
 #profileBar{
   display: flex;
   flex-direction: column;
