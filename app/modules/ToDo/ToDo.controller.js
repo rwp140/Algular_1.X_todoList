@@ -357,8 +357,14 @@
     function loadList(){
       if(vm.list == null) vm.list = [];
       clearDisplay();
-      for(let i=0,l=vm.list.length;i<l;i++){
-        addItemToDisplayList(i,vm.list[i]);
+      var pageStart = (vm.pageIndex*vm.pageSize);
+      //if(vm.pageIndex>0) pageStart-=1;
+      var pageEnd = pageStart+vm.pageSize;
+      if(pageEnd>=vm.list.length) pageEnd = vm.list.length;
+      var indexer = 0;
+      for(let i=pageStart,l=pageEnd;i<l;i++){
+        addItemToDisplayList(indexer,vm.list[i]);
+        indexer++;
       }
       //console.log(vm.displayList);
       //console.log("loaded");
