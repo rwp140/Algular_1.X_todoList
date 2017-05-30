@@ -171,9 +171,6 @@
         }
         var filterdByName = filterByName();
         var filterdByTags = filterByTags();
-        //console.log(filterdByName);
-        console.log(filterdByTags);
-        console.log(vm.tabs);
         for(let i =0, l = filterdByName.length; i<l; i++){
             vm.tabs[filterdByName[i]].invisible = false;
         }
