@@ -42,8 +42,11 @@ body{
 }
 #pageTurner{
   display: flex;
-  align-content: stretch;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: space-between;
+}
+#pageTurner div{
+    flex: auto;
 }
 #profileBar{
   display: flex;
