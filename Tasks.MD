@@ -24,15 +24,10 @@
 
 ### multi list interactions
 #### features [note colour not implemented yet for technical/asset reasons]
-- data entered in to the search bar should: reduce to tabs with partial matching name and tag values
-- should be able to flip through pages for lists with more then [PageSize]
+- data entered in to the search bar should: reduce to tabs with partial matching name and tag values (need partial matching)
+- should be able to flip through pages for lists with more then [PageSize] (done)
 #### tasks
 - update filter [action]s to allow for partial matching values
-- add "pages" functionality to lists (done)
-- - add left and right chevrons "<",">" to bottom of list to change through pages
-- - display items i - i+"24"[pageSize-1] where i is "pageIndex" of list passed to display list (done)
-- - on click ">":pageIndex+1 (done)
-- - on click "<":(pageIndex>0) pageIndex-1 (done)
 
 ### additional base Functionalities
 - add buttons to raise or lower an item through the list
