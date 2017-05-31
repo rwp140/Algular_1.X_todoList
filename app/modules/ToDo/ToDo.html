@@ -14,7 +14,7 @@
     <input id ="mainInput" name="mainInput" placeholder="enter To Do Item Text Here (press enter to save)" type="text"ng-model="vm.inputData" ng-keydown="vm.addItemAction($event)"/>
     <List-Item class = 'item' ng-repeat = 'item in vm.displayList' ></List-Item>
     <div id = "pageTurner">
-      <div ng-click="vm.flipPage(-1)"> <-- </div>
+      <div ng-click="vm.flipPage(-1)" ng-show="((vm.pageIndex)>0)"> <-- </div>
       <div ng-click="vm.flipPage(1)"> --> </div>
     </div>
   </div>
