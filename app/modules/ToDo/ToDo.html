@@ -15,7 +15,7 @@
     <List-Item class = 'item' ng-repeat = 'item in vm.displayList' ></List-Item>
     <div id = "pageTurner">
       <div ng-click="vm.flipPage(-1)" ng-show="((vm.pageIndex)>0)"> <-- </div>
-      <div ng-click="vm.flipPage(1)"> --> </div>
+      <div ng-click="vm.flipPage(1)" ng-show="((vm.pageIndex+1)*(vm.pageSize)<vm.list.length)"> --> </div>
     </div>
   </div>
   <list-Creation ng-if="vm.listCreation == true">
