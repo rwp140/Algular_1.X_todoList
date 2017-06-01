@@ -285,11 +285,27 @@
     }
     function filterByName(){ //<!>currently only does full matchs
       var nums_ = [];
+      var partailMatches = [];
       for(let i =0, l= vm.tabs.length; i<l;i++){
         if(vm.tabs[i].name == vm.search){
           nums_.push(i);
+        }else{
+          let tabLetters = vm.tabs[i].name.split("");
+          let searchLetters = vm.search.split("");
+          for(let n=0, c =tabLetters.length; n<c;n++){
+            let boolMatch = false;
+            for(let p=0,s=searchLetters.length;p<s;p++){
+              if(tabLetters[n]==searchLetters[p] && (p==0 ||boolMatch==true) ){
+                  boolMatch = true;
+              } else if(tabLetters[n]!=searchLetters[p]){
+                boolMatch = false;
+              }
+            }
+            if(boolMatch) partailMatches.push(i);
+          }
         }
       }
+      nums_= nums_.concat(partailMatches)
       return nums_;
     }
     function filterByTags(){ //<!>currently only does full matchs
@@ -299,6 +315,7 @@
           if(vm.tabs[i].tags[n] == vm.search){
             nums_.push(i);
           }
+
         }
       }
       return nums_;
