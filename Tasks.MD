@@ -25,7 +25,6 @@
 ### multi list interactions
 #### features [note colour not implemented yet for technical/asset reasons]
 - data entered in to the search bar should: reduce to tabs with partial matching name and tag values (need partial matching)
-- should be able to flip through pages for lists with more then [PageSize] (done)
 #### tasks
 - update filter [action]s to allow for partial matching values
 
