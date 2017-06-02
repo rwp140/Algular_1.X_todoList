@@ -22,11 +22,6 @@
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
 ## personal tasks and features (bonus)
 
-### multi list interactions
-#### features [note colour not implemented yet for technical/asset reasons]
-- data entered in to the search bar should: reduce to tabs with partial matching name and tag values (need partial matching) (done)
-#### tasks
-- update filter [action]s to allow for partial matching values
 
 ### additional base Functionalities
 - add buttons to raise or lower an item through the list
