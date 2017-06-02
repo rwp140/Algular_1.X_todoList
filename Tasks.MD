@@ -20,13 +20,24 @@
 12. Upload all your code to github. =done=
 
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
-## personal tasks and features (bonus)
-
+## personal additional tasks and features (bonus)
 
 ### additional base Functionalities
-- add buttons to raise or lower an item through the list
-- or set up click and drag to order items around
+- add buttons or set up click and drag to; raise or lower an item through the list and order items around
 - (optional)double clicking over a empty display item should reveal a input field
+
+### guide
+-set up default list called guide, which acts an exemplar, created by default for new users
+
+### FIX non detrimental bugs
+-set up "on()" loading, for lists(issue - needs research, conflicts with current angular, works as is currently)(assume on hold indefinatly)
+
+###convert to different skeleton model and rebuild
+- copy and past / save relative code to back up
+- branch build
+- set up and establish using "angularjs_starting_template" (https://github.com/tlkiong/angularjs_starting_template/) by T.L. kiong
+- rebuild, update, and set up old code and convert old as needed to new template
+- functionalize code into services and controllers where available and possible as needed
 
 ### beautify, and extend user log in
 - change cover to also be a log in page
@@ -37,9 +48,3 @@
 - add list and profile persistence (sessions) (done)
 - add ability to log in and sign up by G+
 - re enable email log in, add encryption [if missing]
-
-### guide
--set up default list called guide, which acts an exemplar, created by default for new users
-
-### FIX non detrimental bugs
--set up "on()" loading, for lists(issue - needs research, conflicts with current angular, works as is currently)(assume on hold indefinatly)
