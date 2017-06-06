@@ -21,25 +21,31 @@
 
 *Take note of the commits that you do. It is here that I will see whether you commit often & how you decide to commit your codes*
 ## personal additional tasks and features (bonus)
+### spacing and beauty
+- fix tab spacing
+- add selected tab indicator
+- add unselected tab indicator
+- add edit tab actions
 
-### additional base Functionalities
-- add buttons or set up click and drag to; raise or lower an item through the list and order items around
+### additional base Functionalities (med priority)
+- add buttons or set up click and drag to; raise or lower an item through the list and order items around  (blocker)
 - (optional)double clicking over a empty display item should reveal a input field
+- add edit button
 
-### guide
+### guide (low priority, blocker)
 -set up default list called guide, which acts an exemplar, created by default for new users
 
-### FIX non detrimental bugs
+### FIX non detrimental bugs (low priority/non-blocker)
 -set up "on()" loading, for lists(issue - needs research, conflicts with current angular, works as is currently)(assume on hold indefinatly)
 
-###convert to different skeleton model and rebuild
+###convert to different skeleton model and rebuild(med priority, blockers required)
 - copy and past / save relative code to back up
 - branch build
 - set up and establish using "angularjs_starting_template" (https://github.com/tlkiong/angularjs_starting_template/) by T.L. kiong
 - rebuild, update, and set up old code and convert old as needed to new template
 - functionalize code into services and controllers where available and possible as needed
 
-### beautify, and extend user log in
+### beautify, and extend user log in (low priority)
 - change cover to also be a log in page
 - clicking create new user should open up to a user creation page
   - user creation should allow user to connect with facebook, G+ or use an email or password
