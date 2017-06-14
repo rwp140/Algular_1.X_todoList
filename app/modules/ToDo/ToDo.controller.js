@@ -26,7 +26,7 @@
     vm.signOutAction = signOutAction;
     vm.signUpAction = signUpAction;
     vm.removeItem = removeItem;
-    /*====================== public Variables =============================== */
+    /*======================  Variables =============================== */
     vm.displayList = [{value:" "},{value:" "}];
     vm.indexer = 0;
     vm.inputData = "";
@@ -39,11 +39,6 @@
     vm.tabs = null;//[{name:"testList",colour:"",tags:["test","tasks"]}];
     vm.tabName ="";//<!>
     vm.tabTags = "";
-    //vm.user;
-    //vm.userEmail = "";//<!> add encryption
-    //vm.userPassword = ""///<!> add encryption
-    //</!> move to profile.controler
-    /*====================== private Variables ============================== */
     var oldTabName;
     var startX = 0, startY = 0, x = 0, y = 0;
     var element;
@@ -471,7 +466,8 @@
     }
     //</>
     function saveList(_list){
-    //  let promise = new Promise((resolve, reject) => {
+
+      //  let promise = new Promise((resolve, reject) => {
       //  if (/* some async task is all good */) {
       //    resolve('Success!');
       //  } else {
@@ -502,6 +498,7 @@
     }
 
     function saveTab(){
+
       //var tab_ = {colour:vm.tabs[vm.indexer].colour,tags:vm.tabs[vm.indexer].tags};
       //var tabName_ = vm.tabs[vm.indexer].name;
       var defer = $q.defer();
