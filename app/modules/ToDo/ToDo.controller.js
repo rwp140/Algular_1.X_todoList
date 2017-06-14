@@ -4,10 +4,10 @@
   angular.module('ToDo')
   .controller('ToDoController',ToDoController);
 
-  ToDoController.$inject = ['$q','firebaseService','profileService'];
-  function ToDoController($q,firebaseService,profileService){
+  ToDoController.$inject = ['$q','$document','firebaseService','profileService'];
+  function ToDoController($q,$document,firebaseService,profileService){
     var vm = this;
-    /*====================== Delegation Variables =========================== */
+    /*====================== Delegation  =========================== */
     vm.addItem = addItem;
     vm.addItemAction = addItemAction;
     vm.addList = addList;
@@ -18,6 +18,7 @@
     vm.editModeAction = editModeAction;
     vm.exitEditMode = exitEditMode;
     vm.flipPage = flipPage;
+    vm.mouseDrag = mouseDrag;
     vm.saveAction = saveAction;
     vm.searchListsAction = searchListsAction;
     vm.selectListAction = selectListAction;
@@ -29,8 +30,6 @@
     vm.displayList = [{value:" "},{value:" "}];
     vm.indexer = 0;
     vm.inputData = "";
-    //vm.logedIn = false;
-    //<!> move to profile.controler
     vm.listCreation = false;
     vm.list = [{value:" ",done:false},{value:" ",done:false}];
     vm.pageIndex = 0;
@@ -46,6 +45,8 @@
     //</!> move to profile.controler
     /*====================== private Variables ============================== */
     var oldTabName;
+    var startX = 0, startY = 0, x = 0, y = 0;
+    var element;
     /*====================== Services ======================================= */
     var fbSvc = firebaseService;
     var pSvc = profileService;
@@ -145,6 +146,20 @@
         vm.pageIndex+=value;
         loadList();
       }
+    }
+    function mouseDrag($event){
+      element = $event.target;
+      //determin index position of element in display list
+
+      //modify style
+      element.style.top = y+'px';
+      element.style.position ='relative';
+      element.style['z-index'] =1;
+      element.style['backgroundColor'] ='rgba(128, 128, 128, .25)';
+      startY = event.pageY - y;
+      //triggers document lisenters
+      $document.on('mousemove', mousemove);
+      $document.on('mouseup', mouseup);
     }
     function removeItem(index){
       vm.list.splice(index,1);
@@ -268,7 +283,7 @@
       } else {
         line_ = '';
       }
-      vm.displayList[index] = {value:item.value, done: item.done, editMode: false, line:line_};
+      vm.displayList[index] = {value:item.value, done: item.done, editMode: false, line:line_, selected:false};
     }
     function clearDisplay(){
       vm.displayList = [];
@@ -432,7 +447,29 @@
       // });
       // return deferred.promise;
     }
+    //<!> based  on  https://docs.angularjs.org/guide/directive#creating-a-directive-that-adds-event-listeners
+    function mousemove(event) {
+      y = event.pageY - startY;
+      //x = event.pageX - startX;
+      element.style.top = y+'px';
+    }
 
+    function mouseup() {
+      //determin new index position of element
+      //reset
+      startX = 0;
+      startY = 0;
+      x = 0;
+      y = 0;
+      element.style.position ='static';
+      element.style['z-index'] =0;
+      element.style['backgroundColor'] ='rgba(0, 0, 0, 0)';
+      $document.off('mousemove', mousemove);
+      $document.off('mouseup', mouseup);
+      //save list
+      //reload list
+    }
+    //</>
     function saveList(_list){
     //  let promise = new Promise((resolve, reject) => {
       //  if (/* some async task is all good */) {
