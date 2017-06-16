@@ -1,5 +1,5 @@
 <div class = 'itemContent'>
-  <div  ng-if="!item.editMode" ng-style="{'text-decoration': item.line}" ng-mousedown="vm.mouseDrag($event)">
+  <div  ng-if="!item.editMode" ng-style="{'text-decoration': item.line}" ng-mousedown="vm.mouseDrag($event,$index)">
     <input type="checkbox" ng-if="!item.empty" ng-model = "item.done" ng-click="vm.editItem($index,item.value,item.done)"/>
       {{item.value}}
   </div>
