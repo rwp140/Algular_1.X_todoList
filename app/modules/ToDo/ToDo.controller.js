@@ -19,6 +19,7 @@
     vm.exitEditMode = exitEditMode;
     vm.flipPage = flipPage;
     vm.mouseDrag = mouseDrag;
+    vm.mouseOver = mouseOver;
     vm.saveAction = saveAction;
     vm.searchListsAction = searchListsAction;
     vm.selectListAction = selectListAction;
@@ -39,9 +40,12 @@
     vm.tabs = null;//[{name:"testList",colour:"",tags:["test","tasks"]}];
     vm.tabName ="";//<!>
     vm.tabTags = "";
+
     var oldTabName;
     var startX = 0, startY = 0, x = 0, y = 0;
     var element;
+    var newIndex;
+    var mouseIndex;
     /*====================== Services ======================================= */
     var fbSvc = firebaseService;
     var pSvc = profileService;
@@ -142,10 +146,10 @@
         loadList();
       }
     }
-    function mouseDrag($event){
+    function mouseDrag($event,$index){
       element = $event.target;
       //determin index position of element in display list
-
+      mouseIndex = $index;
       //modify style
       element.style.top = y+'px';
       element.style.position ='relative';
@@ -155,6 +159,15 @@
       //triggers document lisenters
       $document.on('mousemove', mousemove);
       $document.on('mouseup', mouseup);
+    }
+    function mouseOver($event,$index){
+      if(element != null){
+        newIndex = $index;
+        console.log("over");
+        console.log($event.target.clientHeight);
+        console.log($event.target.offsetHeight);
+      }
+
     }
     function removeItem(index){
       vm.list.splice(index,1);
@@ -335,23 +348,19 @@
       vm.displayList = createEmptyList(vm.pageSize);
       vm.list = [];
       fbSvc.initializeFireBase();
+      //console.log();
+    }
+    function seasionCheck(){
       fbSvc.checkUserSession().then(function(user){
         pSvc.user = user;
         userDataCheck(user);
         loadTabs(user.uid);
-        //loadListData(user.uid);
-        //.then(function(_test){
-          //console.log(_test);
-          //console.log(vm.tabs);
-        //});
         pSvc.profileMode = "profile";
         vm.profileMode = "profile";
       },function(){
 
       });
-      //console.log();
     }
-
     function loadListData(_uid){
       //console.log(vm.tabs);
       //console.log(vm.indexer);
@@ -461,7 +470,11 @@
       element.style['backgroundColor'] ='rgba(0, 0, 0, 0)';
       $document.off('mousemove', mousemove);
       $document.off('mouseup', mouseup);
-      //save list
+      //element = null;
+      //update list
+      let item = vm.list[mouseIndex];
+      //vm.list.splice(mouseIndex,1);
+      //vm.list.splice(newIndex,0,item);
       //reload list
     }
     //</>
